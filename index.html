@@ -21,7 +21,7 @@
         <span class="sr-only">Loading...</span>
     </div>  -->
 
-    
+<!--      NAVBAR      -->  
 <nav class="p-3 border-gray-200 rounded bg-[#5BA6A6] dark:bg-gray-800 dark:border-gray-700">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
         <label class="inline-flex relative items-center cursor-pointer">
@@ -49,7 +49,7 @@
       </div>
     </div>
   </nav>
-
+<!--      FILTERS      -->
   <div class="container mx-auto" id="selectContainer">
     <div class="flex flex-wrap -mx-4" id="flexSelectContainer">
       <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selects">
@@ -79,55 +79,112 @@
       </div>
     </div>
     
-
+<!--      JOBS      -->
     <div class="container mx-auto" id="principalContainer">
       <div class="flex flex-wrap -mx-4" id="cardContainer">
       </div>
     </div>
 
-
-    <form class="bg-[#f5f5f5] ">
-      <div class="relative z-0 mb-6 w-full group">
-          <input type="text" name="floating_title" id="floating_title" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer" placeholder=" " required />
-          <label for="floating_title" class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título</label>
+    <!--      JOB DETAIL     -->
+    <div id="cardDetailContainer" class="flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="./assets/images/pia_leon.jpg" alt="">
+      <div class="flex flex-col justify-between p-4  leading-normal">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Cocinero</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">El puesto consiste en cocinar platos clásico desde minutas a sugerencia del día. El cocinero tiene que tener la capacidad de mantener la calma bajo presión. Ser capaz de organizarse y tomar decisiones con rapidez.</p>
       </div>
-      <div>
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-          <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripción"></textarea>
-      </div>
-      
-  <div class="container mx-auto" id="selectContainer">
-    <div class="flex flex-wrap -mx-4" id="flexSelectContainer">
-      <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selects">
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select id="selectCategoryForm" class="block py-2.5 px-0 w-full  md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Categoría</option>
-            <option value="cocina">Cocina</option>
-            <option value="pasteleria">Pastelería</option>
-            <option value="gerencia">Gerencia</option>
-        </select>
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select id="selectLocation" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Locación</option>
-            <option value="caba">CABA</option>
-            <option value="pba">PBA</option>
-            <option value="mendoza">Mendoza</option>
-            <option value="santaFe">Santa Fe</option>
-        </select>
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select id="selectSeniority" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Seniority</option>
-            <option value="junior">Junior</option>
-            <option value="semiSenior">Semi Senior</option>
-            <option value="senior">Senior</option>
-        </select>
-        </div>
+      <div id="buttonsContainer">
+        <button type="button" id="btnEditJob" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">Editar</button>
+        <button type="clear" id="btnDeleteJob"class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Borrar</button>
       </div>
     </div>
-      <button type="submit" class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Crear</button>
+
+      <!--  FORM CREATE JOB   -->
+    <form class="bg-[#f5f5f5] ">
+      <div class="relative z-0 mb-6 w-full group">
+          <input type="text" name="titleCreateJob" id="titleCreateJob" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer" placeholder=" " required />
+          <label for="jobTitle" class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título</label>
+      </div>
+      <div>
+        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+          <textarea id="descriptionCreateJob" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripción"></textarea>
+      </div>
+      <div class="container mx-auto" id="selectContainerCreateJob">
+        <div class="flex flex-wrap -mx-4" id="flexSelectContainerCreateJob">
+          <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selectsCreateJob">
+            <label for="underline_select" class="sr-only">Underline select</label>
+            <select id="selectCategoryCreateJob" class="block py-2.5 px-0 w-full  md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                <option selected>Categoría</option>
+                <option value="cocina">Cocina</option>
+                <option value="pasteleria">Pastelería</option>
+                <option value="gerencia">Gerencia</option>
+            </select>
+            <label for="underline_select" class="sr-only">Underline select</label>
+            <select id="selectLocationCreateJob" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                <option selected>Locación</option>
+                <option value="caba">CABA</option>
+                <option value="pba">PBA</option>
+                <option value="mendoza">Mendoza</option>
+                <option value="santaFe">Santa Fe</option>
+            </select>
+            <label for="underline_select" class="sr-only">Underline select</label>
+            <select id="selectSeniorityCreateJob" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                <option selected>Seniority</option>
+                <option value="junior">Junior</option>
+                <option value="semiSenior">Semi Senior</option>
+                <option value="senior">Senior</option>
+            </select>
+            </div>
+          </div>
+        </div>
+          <button type="submit" class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="buttonCreateJob">Crear</button>
     </form>
+
+          <!--  FORM EDIT JOB   -->
+          <form class="bg-[#f5f5f5] ">
+            <div class="relative z-0 mb-6 w-full group">
+                <input type="text" name="titleEditJob" id="titleEditJob" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer" placeholder=" " required />
+                <label for="floating_title" class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título</label>
+            </div>
+            <div>
+              <label for="descriptionEditJob" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
+                <textarea id="descriptionEditJob" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripción"></textarea>
+            </div>
+            <div class="container mx-auto" id="selectContainerEditJob">
+              <div class="flex flex-wrap -mx-4" id="flexSelectContainerEditJob">
+                <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selects">
+                  <label for="underline_select" class="sr-only">Underline select</label>
+                  <select id="selectCategoryEditJob" class="block py-2.5 px-0 w-full  md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                      <option selected>Categoría</option>
+                      <option value="cocina">Cocina</option>
+                      <option value="pasteleria">Pastelería</option>
+                      <option value="gerencia">Gerencia</option>
+                  </select>
+                  <label for="underline_select" class="sr-only">Underline select</label>
+                  <select id="selectLocationEditJob" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                      <option selected>Locación</option>
+                      <option value="caba">CABA</option>
+                      <option value="pba">PBA</option>
+                      <option value="mendoza">Mendoza</option>
+                      <option value="santaFe">Santa Fe</option>
+                  </select>
+                  <label for="underline_select" class="sr-only">Underline select</label>
+                  <select id="selectSeniorityEditJob" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                      <option selected>Seniority</option>
+                      <option value="junior">Junior</option>
+                      <option value="semiSenior">Semi Senior</option>
+                      <option value="senior">Senior</option>
+                  </select>
+                  </div>
+                </div>
+              </div>
+                <div id="buttonsEditContainer">
+                  <button type="button" id="btnEditJob" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">Editar</button>
+                  <button type="clear" id="btnDeleteJob"class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#431545] focus:outline-none bg-[#a2c0c6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Deshacer</button>
+                </div>
+          </form>
     
 
+<!--      FOOTER      -->
  <footer class="p-4 mb-0 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
     <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#" class="hover:underline">AFRIAULAR</a>
     </span>
