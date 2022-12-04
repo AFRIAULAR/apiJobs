@@ -6,17 +6,29 @@ const $$ = (selectors) => document.querySelectorAll(selectors);
 const hidden = (selector) => selector.classList.add('hidden')
 const show = (selector) => selector.classList.remove('hidden')
 
-//API
+//API 
 const urlBase = ("https://6280450a1020d852057b3f0f.mockapi.io/jobs")
 
 
 // METHODS
-const getJob=()=> {
+const getJobs=()=> {
   fetch(urlBase)
     .then(res => res.json())
     .then(data => createCardJob(data))
 }
-getJob()
+getJobs()
+
+const getJob=(idJob)=>{
+  fetch(`${urlBase}/${idJob}`)
+    .then(res=> res.json())
+    .then (data => {jobToEdit(data)})
+}
+
+const putJob=(idJob)=>{
+  fetch(`${urlBase}/${idJob}`,{
+    method: "PUT"
+  })
+}
 
 const postJob=()=>{
   fetch((urlBase),{
@@ -30,11 +42,11 @@ const postJob=()=>{
 }
 
 const deleteJob = (idJob) =>{
-  fetch(`https://6280450a1020d852057b3f0f.mockapi.io/jobs/${idJob}`,{
+  fetch(`${urlBase}/${idJob}`,{
     method: "DELETE"
   })
+  .finally(()=> window.location.href = "index.html")
 }
-
 
 const saveJob = () =>{
   return{
@@ -46,7 +58,17 @@ const saveJob = () =>{
     availability: $('#selectAvailabilityCreateJob').value
   }
 }
+const jobToEdit = (data) =>{
+  const idJobEdit = $('#btnEditJob').getAttribute('data-id')
+  $('#btnEditJob').setAttribute('data-id', idJobEdit)
+    $('#titleEditJob').value = data.jobName
+    $('#descriptionEditJob').value = data.description
+    $('#selectAvailabilityCreateJob').value= data.availability
+    $('#selectSeniorityEditJob').value = data.seniority
+    $('#selectCategoryEditJob').value = data.category
+    $('#selectLocationEditJob').value = data.location
 
+}
 
 const createCardJob = (jobs) =>{
      for (const job of jobs){
@@ -83,13 +105,15 @@ const showDetails = ()=>{
       hidden($('#cardContainer'))
       show($('#cardDetailContainer'))
       const idJob = btn.getAttribute('data-id')
-      $('#deleteJobModal').setAttribute('data-id', idJob)
-      })
+      $('#deleteJobModal').setAttribute('data-id', idJob)     
+      $('#btnEditJob').setAttribute('data-id', idJob)
+      getJob(idJob)
+    })
     }
 }
 
 
-//  DOM EVENTS
+//  DOM EVENTS    
 $('#showCreateJob').addEventListener('click', ()=>{
   hidden($('#selectContainer'))
   hidden($('#cardContainer'))
@@ -103,7 +127,6 @@ $('#createJobForm').addEventListener('submit', (e)=>{
 
 $('#btnDeleteJob').addEventListener('click', ()=>{
   show($('#delete-modal'))
-  
 })
 
 $('#deleteJobModal').addEventListener('click', ()=>{
@@ -115,3 +138,11 @@ $('#deleteJobModal').addEventListener('click', ()=>{
 $('#cancel-delete').addEventListener('click', ()=>{
     hidden($('#delete-modal'))
   })
+
+$('#btnEditJob').addEventListener('click', ()=>{
+  show($('#editJobForm'))
+  hidden($('#cardDetailContainer'))
+  const idJobEdit = $('#btnEditJob').getAttribute('data-id')
+  $('#btnEditJob').setAttribute('data-id', idJobEdit)
+  
+})
