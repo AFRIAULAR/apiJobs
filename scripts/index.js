@@ -9,6 +9,7 @@ const show = (selector) => selector.classList.remove('hidden')
 //API
 const urlBase = ("https://6280450a1020d852057b3f0f.mockapi.io/jobs")
 
+
 // METHODS
 const getJob=()=> {
   fetch(urlBase)
@@ -28,6 +29,13 @@ const postJob=()=>{
   .finally(()=> window.location.href = "index.html")
 }
 
+const deleteJob = (idJob) =>{
+  fetch(`https://6280450a1020d852057b3f0f.mockapi.io/jobs/${idJob}`,{
+    method: "DELETE"
+  })
+}
+
+
 const saveJob = () =>{
   return{
     jobName: $('#titleCreateJob').value,
@@ -38,6 +46,7 @@ const saveJob = () =>{
     availability: $('#selectAvailabilityCreateJob').value
   }
 }
+
 
 const createCardJob = (jobs) =>{
      for (const job of jobs){
@@ -58,7 +67,7 @@ const createCardJob = (jobs) =>{
                   <p class="text-sm">${availability}</p>
                 </div>
                 <div class="p-4 border-t border-b text-xs text-gray-700">
-                  <button id="btnJobDetails" data-id="${id}"class="btnJobDetails flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>        
+                  <button id="btnJobDetails" data-id="${id}" class="btnJobDetails flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>        
                 </div>
             </div>
           </div>
@@ -73,9 +82,12 @@ const showDetails = ()=>{
       hidden($('#selectContainer'))
       hidden($('#cardContainer'))
       show($('#cardDetailContainer'))
+      const idJob = btn.getAttribute('data-id')
+      $('#deleteJobModal').setAttribute('data-id', idJob)
       })
     }
 }
+
 
 //  DOM EVENTS
 $('#showCreateJob').addEventListener('click', ()=>{
@@ -89,6 +101,17 @@ $('#createJobForm').addEventListener('submit', (e)=>{
   postJob()
 })
 
-$('#btnDeleteJob').addEventListener('click', {
+$('#btnDeleteJob').addEventListener('click', ()=>{
+  show($('#delete-modal'))
   
 })
+
+$('#deleteJobModal').addEventListener('click', ()=>{
+  const idJob = $('#deleteJobModal').getAttribute('data-id')
+  $('#deleteJobModal').setAttribute('data-id', idJob)
+  deleteJob(idJob)
+})
+
+$('#cancel-delete').addEventListener('click', ()=>{
+    hidden($('#delete-modal'))
+  })

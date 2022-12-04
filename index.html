@@ -93,11 +93,28 @@
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">El puesto consiste en cocinar platos clásico desde minutas a sugerencia del día. El cocinero tiene que tener la capacidad de mantener la calma bajo presión. Ser capaz de organizarse y tomar decisiones con rapidez.</p>
       </div>
       <div id="buttonsContainer">
-        <button type="button" id="btnEditJob" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">Editar</button>
-        <button type="clear" id="btnDeleteJob"class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Borrar</button>
+        <button type="button" id="btnEditJob" class=" py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">Editar</button>
+        <button type="button" id="btnDeleteJob" class="block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" data-modal-toggle="delete-modal">Borrar</button>
       </div>
     </div>
-
+<!--MODAL TO CONFIRM DELETE-->
+  <div id="delete-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+      <div class="relative w-full h-full max-w-md md:h-auto">
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="delete-modal">
+                  <span class="sr-only">Close modal</span>
+              </button>
+              <div class="p-6 text-center">
+                  <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Estás seguro de querer borrar este trabajo?</h3>
+                  <button data-modal-toggle="delete-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2" id="deleteJobModal">
+                      Si, estoy seguro
+                  </button>
+                  <button data-modal-toggle="delete-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600" id="cancel-delete">Cancelar</button>
+              </div>
+          </div>
+      </div>
+  </div>
       <!--  FORM CREATE JOB   -->
     <form id="createJobForm" method="POST" class="bg-[#f5f5f5] hidden">
       <div class="relative z-0 mb-6 w-full group">
