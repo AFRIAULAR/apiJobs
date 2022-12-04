@@ -24,12 +24,24 @@ const postJob=()=>{
         'Content-Type':'Application/json'
       },
       body: JSON.stringify(saveJob())
-  } )
+  })
+  .finally(()=> window.location.href = "index.html")
+}
+
+const saveJob = () =>{
+  return{
+    jobName: $('#titleCreateJob').value,
+    description: $('#descriptionCreateJob').value ,
+    location: $('#selectLocationCreateJob').value,
+    category: $('#selectCategoryCreateJob').value,
+    seniority: $('#selectSeniorityCreateJob').value,
+    availability: $('#selectAvailabilityCreateJob').value
+  }
 }
 
 const createCardJob = (jobs) =>{
      for (const job of jobs){
-         const { jobName, location, seniority, availability, category } = job
+         const { id, jobName, location, seniority, availability, category } = job
          $('#cardContainer').innerHTML += 
          ` <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
             <div class="c-card block bg-[#f5f5f5] shadow-md hover:shadow-xl rounded-lg overflow-hidden">
@@ -46,25 +58,24 @@ const createCardJob = (jobs) =>{
                   <p class="text-sm">${availability}</p>
                 </div>
                 <div class="p-4 border-t border-b text-xs text-gray-700">
-                  <button id="btnJobDetails" class="flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>        
+                  <button id="btnJobDetails" data-id="${id}"class="btnJobDetails flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>        
                 </div>
             </div>
           </div>
          `
      }
- }
-
-const saveJob = () =>{
-  return{
-    jobName: $('#titleCreateJob').value,
-    description: $('#descriptionCreateJob').value ,
-    location: $('#selectLocationCreateJob').value,
-    category: $('#selectCategoryCreateJob').value,
-    seniority: $('#selectSeniorityCreateJob').value,
-    availability: $('#selectAvailabilityCreateJob').value
-  }
+  showDetails()
 }
-// const cleanContainer = () => $('#cardContainer').innerHTML ="" 
+ 
+const showDetails = ()=>{
+  for (const btn of $$('.btnJobDetails')){
+    btn.addEventListener('click', ()=>{
+      hidden($('#selectContainer'))
+      hidden($('#cardContainer'))
+      show($('#cardDetailContainer'))
+      })
+    }
+}
 
 //  DOM EVENTS
 $('#showCreateJob').addEventListener('click', ()=>{
@@ -76,4 +87,8 @@ $('#showCreateJob').addEventListener('click', ()=>{
 $('#createJobForm').addEventListener('submit', (e)=>{
   e.preventDefault()
   postJob()
+})
+
+$('#btnDeleteJob').addEventListener('click', {
+  
 })
