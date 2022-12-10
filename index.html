@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.7.4/tailwind.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" type="image/jpg" href="./assets/images/favicon.ico"/>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/0.7.4/tailwind.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" type="image/jpg" href="./assets/images/favicon.ico" />
     <title>Jobs</title>
-</head>
-<body class="bg-gray-300 font-sans">
+  </head>
+  <body class="bg-gray-300 font-sans">
     <!-- <div role="status" id="spinner">
         <svg class="inline mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-[#431545]" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
@@ -21,211 +30,438 @@
         <span class="sr-only">Loading...</span>
     </div>  -->
 
-<!--      NAVBAR      -->  
-<nav class="p-3 border-gray-200 rounded bg-[#5BA6A6] dark:bg-gray-800 dark:border-gray-700">
-    <div class="container flex flex-wrap items-center justify-between mx-auto">
+    <!--      NAVBAR      -->
+    <nav
+      class="p-3 border-gray-200 rounded bg-[#5BA6A6] dark:bg-gray-800 dark:border-gray-700"
+    >
+      <div
+        class="container flex flex-wrap items-center justify-between mx-auto"
+      >
         <label class="inline-flex relative items-center cursor-pointer">
-            <input type="checkbox" value="" class="sr-only peer">
-            <div id="darkTheme" class="w-11 h-6 bg-[#431545] peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-gray-700 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#dccac9]"></div>
-            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
-          </label>
-      <a href="#" class="flex items-center">
-          <img src="./assets/images/undraw_personal_file_re_5joy.svg" class="h-6 mr-3 sm:h-10" alt="buffet jobs Logo" />
-          <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Buffet Jobs</span>
-      </a>
-      <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-      </button>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
-        <ul class="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-          <li>
-            <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-2 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent" aria-current="page">Inicio</a>
-          </li>
-          <li>
-            <button type="submit" id="showCreateJob" class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-2 focus:outline-none focus:ring-[#68436a] font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-[#dccac9] dark:hover:bg-[#dccac9] dark:focus:ring-blue-800">Crear vacante</button>
-          </li>
-        </ul>
+          <input type="checkbox" value="" class="sr-only peer" />
+          <div
+            id="darkTheme"
+            class="w-11 h-6 bg-[#431545] peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-gray-700 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#dccac9]"
+          ></div>
+          <span
+            class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+          ></span>
+        </label>
+        <a href="#" class="flex items-center">
+          <img
+            src="./assets/images/undraw_personal_file_re_5joy.svg"
+            class="h-6 mr-3 sm:h-10"
+            alt="buffet jobs Logo"
+          />
+          <span
+            class="self-center text-xl font-semibold whitespace-nowrap text-white"
+            >Buffet Jobs</span
+          >
+        </a>
+        <button
+          data-collapse-toggle="navbar-solid-bg"
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-solid-bg"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+          <ul
+            class="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-2 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+                aria-current="page"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <button
+                type="submit"
+                id="showCreateJob"
+                class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-2 focus:outline-none focus:ring-[#68436a] font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-[#dccac9] dark:hover:bg-[#dccac9] dark:focus:ring-blue-800"
+              >
+                Crear vacante
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-<!--      FILTERS      -->
-  <div class="container mx-auto" id="selectContainer">
-    <div class="flex flex-wrap -mx-4" id="flexSelectContainer">
-      <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selects">
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select id="selectCategory" class="block py-2.5 px-0 w-full  md:w-1/3 xl:w-1/3 text-sm text-[#431545] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+    </nav>
+    <!--      FILTERS      -->
+    <div class="container mx-auto" id="selectContainer">
+      <div class="flex flex-wrap -mx-4" id="flexSelectContainer">
+        <div
+          class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4"
+          id="selects"
+        >
+          <label for="underline_select" class="sr-only">Underline select</label>
+          <select
+            id="selectCategory"
+            class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#431545] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
             <option selected>Categoría</option>
             <option value="cocina">Cocina</option>
             <option value="pasteleria">Pastelería</option>
             <option value="gerencia">Gerencia</option>
-        </select>
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select id="selectLocation" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#431545] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+          </select>
+          <label for="underline_select" class="sr-only">Underline select</label>
+          <select
+            id="selectLocation"
+            class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#431545] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
             <option selected>Locación</option>
             <option value="caba">CABA</option>
             <option value="pba">PBA</option>
             <option value="mendoza">Mendoza</option>
             <option value="santaFe">Santa Fe</option>
-        </select>
-        <label for="underline_select" class="sr-only">Underline select</label>
-        <select id="selectSeniority" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#431545] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+          </select>
+          <label for="underline_select" class="sr-only">Underline select</label>
+          <select
+            id="selectSeniority"
+            class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#431545] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
             <option selected>Seniority</option>
             <option value="junior">Junior</option>
             <option value="semiSenior">Semi Senior</option>
             <option value="senior">Senior</option>
-        </select>
+          </select>
         </div>
       </div>
     </div>
-    
-<!--      JOBS      -->
+
+    <!--      JOBS      -->
     <div class="container mx-auto" id="principalContainer">
-      <div class="flex flex-wrap -mx-4" id="cardContainer">
-      </div>
+      <div class="flex flex-wrap -mx-4" id="cardContainer"></div>
     </div>
 
     <!--      JOB DETAIL    -->
-    <div id="cardDetailContainer" class="hidden flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-      <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="./assets/images/pia_leon.jpg" alt="">
-      <div class="flex flex-col justify-between p-4  leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Cocinero</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">El puesto consiste en cocinar platos clásico desde minutas a sugerencia del día. El cocinero tiene que tener la capacidad de mantener la calma bajo presión. Ser capaz de organizarse y tomar decisiones con rapidez.</p>
+    <div
+      id="cardDetailContainer"
+      class="hidden flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
+    >
+      <img
+        class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+        src="./assets/images/pia_leon.jpg"
+        alt=""
+      />
+      <div class="flex flex-col justify-between p-4 leading-normal">
+        <h5
+          class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+        >
+          Cocinero
+        </h5>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          El puesto consiste en cocinar platos clásico desde minutas a
+          sugerencia del día. El cocinero tiene que tener la capacidad de
+          mantener la calma bajo presión. Ser capaz de organizarse y tomar
+          decisiones con rapidez.
+        </p>
       </div>
       <div id="buttonsContainer">
-        <button type="button" id="btnEditJob" class=" py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">Editar</button>
-        <button type="button" id="btnDeleteJob" class="block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" data-modal-toggle="delete-modal">Borrar</button>
+        <button
+          type="button"
+          id="btnEditJob"
+          class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]"
+        >
+          Editar
+        </button>
+        <button
+          type="button"
+          id="btnDeleteJob"
+          class="block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+          data-modal-toggle="delete-modal"
+        >
+          Borrar
+        </button>
       </div>
     </div>
-<!--MODAL TO CONFIRM DELETE-->
-  <div id="delete-modal" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+    <!--MODAL TO CONFIRM DELETE-->
+    <div
+      id="delete-modal"
+      tabindex="-1"
+      class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full"
+    >
       <div class="relative w-full h-full max-w-md md:h-auto">
-          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-              <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="delete-modal">
-                  <span class="sr-only">Close modal</span>
-              </button>
-              <div class="p-6 text-center">
-                  <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                  <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Estás seguro de querer borrar este trabajo?</h3>
-                  <button data-modal-toggle="delete-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2" id="deleteJobModal">
-                      Si, estoy seguro
-                  </button>
-                  <button data-modal-toggle="delete-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600" id="cancel-delete">Cancelar</button>
-              </div>
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <button
+            type="button"
+            class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+            data-modal-toggle="delete-modal"
+          >
+            <span class="sr-only">Close modal</span>
+          </button>
+          <div class="p-6 text-center">
+            <svg
+              aria-hidden="true"
+              class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              ></path>
+            </svg>
+            <h3
+              class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400"
+            >
+              Estás seguro de querer borrar este trabajo?
+            </h3>
+            <button
+              data-modal-toggle="delete-modal"
+              type="button"
+              class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+              id="deleteJobModal"
+            >
+              Si, estoy seguro
+            </button>
+            <button
+              data-modal-toggle="delete-modal"
+              type="button"
+              class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+              id="cancel-delete"
+            >
+              Cancelar
+            </button>
           </div>
+        </div>
       </div>
-  </div>
-      <!--  FORM CREATE JOB   -->
+    </div>
+    <!--  FORM CREATE JOB   -->
     <form id="createJobForm" method="POST" class="bg-[#f5f5f5] hidden">
       <div class="relative z-0 mb-6 w-full group">
-          <input type="text" name="titleCreateJob" id="titleCreateJob" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer" placeholder=" " required />
-          <label for="jobTitle" class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título</label>
+        <input
+          type="text"
+          name="titleCreateJob"
+          id="titleCreateJob"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer"
+          placeholder=" "
+          required
+        />
+        <label
+          for="jobTitle"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Título</label
+        >
       </div>
       <div>
-        <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-          <textarea id="descriptionCreateJob" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripción"></textarea>
+        <label
+          for="description"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        ></label>
+        <textarea
+          id="descriptionCreateJob"
+          rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Descripción"
+        ></textarea>
       </div>
       <div class="container mx-auto" id="selectContainerCreateJob">
         <div class="flex flex-wrap -mx-4" id="flexSelectContainerCreateJob">
-          <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selectsCreateJob">
-            <label for="underline_select" class="sr-only">Underline select</label>
-            <select id="selectCategoryCreateJob" class="block py-2.5 px-0 w-full  md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                <option selected>Categoría</option>
-                <option value="Cocina">Cocina</option>
-                <option value="Pasteleria">Pastelería</option>
-                <option value="Gerencia">Gerencia</option>
+          <div
+            class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4"
+            id="selectsCreateJob"
+          >
+            <label for="underline_select" class="sr-only"
+              >Underline select</label
+            >
+            <select
+              id="selectCategoryCreateJob"
+              class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            >
+              <option selected>Categoría</option>
+              <option value="Cocina">Cocina</option>
+              <option value="Pasteleria">Pastelería</option>
+              <option value="Gerencia">Gerencia</option>
             </select>
-            <label for="underline_select" class="sr-only">Underline select</label>
-            <select id="selectLocationCreateJob" class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                <option selected>Locación</option>
-                <option value="CABA">CABA</option>
-                <option value="PBA">PBA</option>
-                <option value="Mendoza">Mendoza</option>
-                <option value="SantaFe">Santa Fe</option>
+            <label for="underline_select" class="sr-only"
+              >Underline select</label
+            >
+            <select
+              id="selectLocationCreateJob"
+              class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            >
+              <option selected>Locación</option>
+              <option value="CABA">CABA</option>
+              <option value="PBA">PBA</option>
+              <option value="Mendoza">Mendoza</option>
+              <option value="SantaFe">Santa Fe</option>
             </select>
-            <label for="underline_select" class="sr-only">Underline select</label>
-            <select id="selectSeniorityCreateJob" class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                <option selected>Seniority</option>
-                <option value="Junior">Junior</option>
-                <option value="Semi Senior">Semi Senior</option>
-                <option value="Senior">Senior</option>
+            <label for="underline_select" class="sr-only"
+              >Underline select</label
+            >
+            <select
+              id="selectSeniorityCreateJob"
+              class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            >
+              <option selected>Seniority</option>
+              <option value="Junior">Junior</option>
+              <option value="Semi Senior">Semi Senior</option>
+              <option value="Senior">Senior</option>
             </select>
-            <label for="underline_select" class="sr-only">Underline select</label>
-            <select id="selectAvailabilityCreateJob" class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+            <label for="underline_select" class="sr-only"
+              >Underline select</label
+            >
+            <select
+              id="selectAvailabilityCreateJob"
+              class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            >
               <option selected>Disponibilidad</option>
               <option value="Part-Time">Part-Time</option>
               <option value="Full-Time">Full-Time</option>
             </select>
-            </div>
           </div>
         </div>
-          <button type="submit" class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" id="buttonCreateJob">Crear</button>
+      </div>
+      <button
+        type="submit"
+        class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        id="buttonCreateJob"
+      >
+        Crear
+      </button>
     </form>
 
-          <!--  FORM EDIT JOB   -->
-          <form id="editJobForm" class="bg-[#f5f5f5] hidden">
-            <div class=" relative z-0 mb-6 w-full group ">
-                <input type="text" name="titleEditJob" id="titleEditJob" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer" placeholder=" " required />
-                <label for="floating_title" class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título</label>
-            </div>
-            <div>
-              <label for="descriptionEditJob" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-                <textarea id="descriptionEditJob" value="" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Descripción"></textarea>
-            </div>
-            <div class="container mx-auto" id="selectContainerEditJob">
-              <div class="flex flex-wrap -mx-4" id="flexSelectContainerEditJob">
-                <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selects">
-                  <label for="underline_select" class="sr-only">Underline select</label>
-                  <select id="selectCategoryEditJob" class="block py-2.5 px-0 w-full  md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                      <option selected>Categoría</option>
-                      <option value="Cocina">Cocina</option>
-                      <option value="Pasteleria">Pastelería</option>
-                      <option value="Gerencia">Gerencia</option>
-                  </select>
-                  <label for="underline_select" class="sr-only">Underline select</label>
-                  <select id="selectLocationEditJob" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                      <option selected>Locación</option>
-                      <option value="CABA">CABA</option>
-                      <option value="PBA">PBA</option>
-                      <option value="Mendoza">Mendoza</option>
-                      <option value="Santa Fe">Santa Fe</option>
-                  </select>
-                  <label for="underline_select" class="sr-only">Underline select</label>
-                  <select id="selectSeniorityEditJob" class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                      <option selected>Seniority</option>
-                      <option value="Junior">Junior</option>
-                      <option value="Semi Senior">Semi Senior</option>
-                      <option value="Senior">Senior</option>
-                  </select>
-                  </div>
-                </div>
-              </div>
-                <div id="buttonsEditContainer">
-                  <button type="button" id="btnEditJob" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e] btnEditJob">Editar</button>
-                  <button type="clear" id="btnDeleteJob"class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#431545] focus:outline-none bg-[#a2c0c6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 btnDeleteJob">Deshacer</button>
-                </div>
-          </form>
-    
+    <!--  FORM EDIT JOB   -->
+    <form id="editJobForm" class="bg-[#f5f5f5] hidden">
+      <div class="relative z-0 mb-6 w-full group">
+        <input
+          type="text"
+          name="titleEditJob"
+          id="titleEditJob"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer"
+          placeholder=" "
+          required
+        />
+        <label
+          for="floating_title"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Título</label
+        >
+      </div>
+      <div>
+        <label
+          for="descriptionEditJob"
+          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        ></label>
+        <textarea
+          id="descriptionEditJob"
+          value=""
+          rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Descripción"
+        ></textarea>
+      </div>
+      <div class="container mx-auto" id="selectContainerEditJob">
+        <div class="flex flex-wrap -mx-4" id="flexSelectContainerEditJob">
+          <div
+            class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4"
+            id="selects"
+          >
+            <label for="underline_select" class="sr-only"
+              >Underline select</label
+            >
+            <select
+              id="selectCategoryEditJob"
+              class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            >
+              <option selected>Categoría</option>
+              <option value="Cocina">Cocina</option>
+              <option value="Pasteleria">Pastelería</option>
+              <option value="Gerencia">Gerencia</option>
+            </select>
+            <label for="underline_select" class="sr-only"
+              >Underline select</label
+            >
+            <select
+              id="selectLocationEditJob"
+              class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            >
+              <option selected>Locación</option>
+              <option value="CABA">CABA</option>
+              <option value="PBA">PBA</option>
+              <option value="Mendoza">Mendoza</option>
+              <option value="Santa Fe">Santa Fe</option>
+            </select>
+            <label for="underline_select" class="sr-only"
+              >Underline select</label
+            >
+            <select
+              id="selectSeniorityEditJob"
+              class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            >
+              <option selected>Seniority</option>
+              <option value="Junior">Junior</option>
+              <option value="Semi Senior">Semi Senior</option>
+              <option value="Senior">Senior</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="buttonsEditContainer">
+        <button
+          type="button"
+          id="btnEditJobPut"
+          class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e] btnEditJob"
+        >
+          Editar
+        </button>
+        <button
+          type="clear"
+          id="btnDeleteJob"
+          class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#431545] focus:outline-none bg-[#a2c0c6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 btnDeleteJob"
+        >
+          Deshacer
+        </button>
+      </div>
+    </form>
 
-<!--      FOOTER      -->
- <footer class="p-4 mb-0 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="#" class="hover:underline">AFRIAULAR</a>
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+    <!--      FOOTER      -->
+    <footer
+      class="p-4 mb-0 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800"
+    >
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400"
+        >© 2022 <a href="#" class="hover:underline">AFRIAULAR</a>
+      </span>
+      <ul
+        class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0"
+      >
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+          <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
         </li>
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
         </li>
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
+          <a href="#" class="mr-4 hover:underline md:mr-6">Licensing</a>
         </li>
         <li>
-            <a href="#" class="hover:underline">Contact</a>
+          <a href="#" class="hover:underline">Contact</a>
         </li>
-    </ul>
-</footer>  
+      </ul>
+    </footer>
     <script src="./scripts/index.js"></script>
-</body>
+  </body>
 </html>
