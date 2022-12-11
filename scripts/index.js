@@ -17,14 +17,20 @@ const getJobs = () => {
 };
 getJobs();
 
-const getJob = (idJob) => {
-  fetch(`${urlBase}/${idJob}`)
-    .then((res) => res.json())
-    .then((data) => {
-      saveEditedJob(data);
-    });
-};
+// const getJob = (idJob) => {
+//   fetch(`${urlBase}/${idJob}`)
+//     .then((res) => res.json())
+//     .then((data) => {
+//       saveEditedJob(data);
+//     });
+// };
 
+const getJob = async (idJob) => {
+  const res = await fetch(`${urlBase}/${idJob}`)
+  const job = await res.json()
+  return job
+
+}
 const putJob = (idJob) => {
   fetch(`${urlBase}/${idJob}`, {
     method: "PUT",
@@ -87,9 +93,8 @@ const jobToEdit = (data) => {
 const createCardJob = (jobs) => {
   for (const job of jobs) {
     const { id, jobName, location, seniority, availability, category } = job;
-    $(
-      "#cardContainer"
-    ).innerHTML += ` <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
+    $("#cardContainer").innerHTML += ` 
+    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
             <div class="c-card block bg-[#f5f5f5] shadow-md hover:shadow-xl rounded-lg overflow-hidden">
                   <div class="relative pb-48 overflow-hidden">
                     <img class="absolute inset-0 h-full w-full object-cover" src="./assets/images/pia_leon.jpg" alt="">
@@ -120,14 +125,57 @@ const showDetails = () => {
       hidden($("#cardContainer"));
       show($("#cardDetailContainer"));
       const idJob = btn.getAttribute("data-id");
-      $("#deleteJobModal").setAttribute("data-id", idJob);
-      $("#btnEditJob").setAttribute("data-id", idJob);
-      $("#btnEditJobPut").getAttribute("data-id");
-      $("#btnEditJobPut").setAttribute("data-id", idJob);
-      getJob(idJob);
+      $(".btnJobDetails").setAttribute("data-id", idJob);
+      $('.cardDetailContainer').setAttribute('data-id', idJob)
+      getJob(idJob).then(data=>cardDetails(data));
     });
+
   }
 };
+
+const cardDetails = (idJob) => {
+  getJob(idJob)
+  const { jobName, description, location, category, availability, seniority, id } = idJob
+  
+  $('.cardDetailContainer').innerHTML = `
+  <div>
+  <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
+      src="./assets/images/pia_leon.jpg" alt="" />
+    <div class="flex flex-col justify-between p-4 leading-normal">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        ${jobName}
+      </h5>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${category} </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${location} </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${seniority} </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${availability} </p>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${description} </p>
+    </div>
+    <div id="buttonsContainer">
+      <button type="button" id="btnEditJob" data-id="${id}"
+        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">
+        Editar
+      </button>
+      <button type="button" id="btnDeleteJob"
+        class=" btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        data-modal-toggle="delete-modal">
+        Borrar
+      </button>
+    </div>
+    </div>
+    
+  `
+  for (const btn of $$('.btnEditJob')) {
+    btn.addEventListener('click', () => {
+      const idJob = btn.getAttribute("data-id");
+      $("#deleteJobModal").setAttribute("data-id", idJob);
+      $(".btnEditJob").setAttribute("data-id", idJob);
+      $("#btnEditJobPut").getAttribute("data-id");
+      $("#btnEditJobPut").setAttribute("data-id", idJob);
+    })
+  }
+
+}
 
 //  DOM EVENTS
 $("#showCreateJob").addEventListener("click", () => {
@@ -155,7 +203,7 @@ $("#cancel-delete").addEventListener("click", () => {
   hidden($("#delete-modal"));
 });
 
-$("#btnEditJob").addEventListener("click", (e) => {
+$(".btnEditJob").addEventListener("click", (e) => {
   e.preventDefault();
   show($("#editJobForm"));
   hidden($("#cardDetailContainer"));
