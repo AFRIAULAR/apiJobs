@@ -17,19 +17,10 @@ const getJobs = () => {
 };
 getJobs();
 
-// const getJob = (idJob) => {
-//   fetch(`${urlBase}/${idJob}`)
-//     .then((res) => res.json())
-//     .then((data) => {
-//       saveEditedJob(data);
-//     });
-// };
-
 const getJob = async (idJob) => {
-  const res = await fetch(`${urlBase}/${idJob}`)
-  const job = await res.json()
+  const res = await fetch(`${urlBase}/${idJob}`);
+  const job = await res.json();
   return job
-
 }
 const putJob = (idJob) => {
   fetch(`${urlBase}/${idJob}`, {
@@ -127,18 +118,17 @@ const showDetails = () => {
       const idJob = btn.getAttribute("data-id");
       $(".btnJobDetails").setAttribute("data-id", idJob);
       $('.cardDetailContainer').setAttribute('data-id', idJob)
-      getJob(idJob).then(data=>cardDetails(data));
+      getJob(idJob).then(data => cardDetails(data));
     });
 
   }
 };
 
 const cardDetails = (idJob) => {
-  getJob(idJob)
   const { jobName, description, location, category, availability, seniority, id } = idJob
-  
+
   $('.cardDetailContainer').innerHTML = `
-  <div>
+  
   <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
       src="./assets/images/pia_leon.jpg" alt="" />
     <div class="flex flex-col justify-between p-4 leading-normal">
@@ -161,9 +151,7 @@ const cardDetails = (idJob) => {
         data-modal-toggle="delete-modal">
         Borrar
       </button>
-    </div>
-    </div>
-    
+    </div> 
   `
   for (const btn of $$('.btnEditJob')) {
     btn.addEventListener('click', () => {
@@ -172,6 +160,7 @@ const cardDetails = (idJob) => {
       $(".btnEditJob").setAttribute("data-id", idJob);
       $("#btnEditJobPut").getAttribute("data-id");
       $("#btnEditJobPut").setAttribute("data-id", idJob);
+
     })
   }
 
@@ -182,6 +171,7 @@ $("#showCreateJob").addEventListener("click", () => {
   hidden($("#selectContainer"));
   hidden($("#cardContainer"));
   show($("#createJobForm"));
+  hidden($("#cardDetailContainer"));
 });
 
 $("#createJobForm").addEventListener("submit", (e) => {
@@ -207,6 +197,7 @@ $(".btnEditJob").addEventListener("click", (e) => {
   e.preventDefault();
   show($("#editJobForm"));
   hidden($("#cardDetailContainer"));
+
 });
 
 $("#btnEditJobPut").addEventListener("click", (e) => {
