@@ -2,11 +2,11 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selectors) => document.querySelectorAll(selectors);
 
-//AUXILIAR FUNCTIONS
+// AUXILIARY FUNCTIONS
 const hidden = (selector) => selector.classList.add("hidden");
 const show = (selector) => selector.classList.remove("hidden");
 
-//API
+// API
 const urlBase = "https://6280450a1020d852057b3f0f.mockapi.io/jobs";
 
 // METHODS
@@ -20,13 +20,14 @@ getJobs();
 const getJob = async (idJob) => {
   const res = await fetch(`${urlBase}/${idJob}`);
   const job = await res.json();
-  return job
-}
+  return job;
+};
+
 const putJob = (idJob) => {
   fetch(`${urlBase}/${idJob}`, {
     method: "PUT",
     headers: {
-      "Content-Type": "Application/json",
+      "Content-Type": "application/json", 
     },
     body: JSON.stringify(saveEditedJob()),
   }).finally(() => (window.location.href = "index.html"));
@@ -36,7 +37,7 @@ const postJob = () => {
   fetch(urlBase, {
     method: "POST",
     headers: {
-      "Content-Type": "Application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(saveJob()),
   }).finally(() => (window.location.href = "index.html"));
@@ -66,7 +67,7 @@ const saveEditedJob = () => {
     location: $("#selectLocationEditJob").value,
     category: $("#selectCategoryEditJob").value,
     seniority: $("#selectSeniorityEditJob").value,
-    availability: $("#selectAvailabilityCreateJob").value,
+    availability: $("#selectAvailabilityCreateJob").value, 
   };
 };
 
@@ -75,36 +76,36 @@ const jobToEdit = (data) => {
   $("#btnEditJob").setAttribute("data-id", idJob);
   $("#titleEditJob").value = data.jobName;
   $("#descriptionEditJob").value = data.description;
-  $("#selectAvailabilityCreateJob").value = data.availability;
+  $("#selectAvailabilityEditJob").value = data.availability; 
   $("#selectSeniorityEditJob").value = data.seniority;
   $("#selectCategoryEditJob").value = data.category;
   $("#selectLocationEditJob").value = data.location;
 };
 
+// DOM
 const createCardJob = (jobs) => {
   for (const job of jobs) {
     const { id, jobName, location, seniority, availability, category } = job;
     $("#cardContainer").innerHTML += ` 
     <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-            <div class="c-card block bg-[#f5f5f5] shadow-md hover:shadow-xl rounded-lg overflow-hidden">
-                  <div class="relative pb-48 overflow-hidden">
-                    <img class="absolute inset-0 h-full w-full object-cover" src="./assets/images/pia_leon.jpg" alt="">
-                  </div>
-                <div class="p-4">
-                  <span class="inline-block px-2 py-1 leading-none bg-[#5BA6A6] text-white rounded-full font-semibold uppercase tracking-wide text-xs">${category}</span>
-                  <h2 class="mt-2 mb-2  font-bold">${jobName}</h2>
-                  <p class="text-sm">${seniority}</p>
-                  <div class="mt-3 flex items-center">
-                    <span class="font-bold text-xl">${location}</span>
-                  </div>
-                  <p class="text-sm">${availability}</p>
-                </div>
-                <div class="p-4 border-t border-b text-xs text-gray-700">
-                  <button id="btnJobDetails" data-id="${id}" class="btnJobDetails flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>        
-                </div>
-            </div>
+      <div class="c-card block bg-[#f5f5f5] shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+        <div class="relative pb-48 overflow-hidden">
+          <img class="absolute inset-0 h-full w-full object-cover" src="./assets/images/pia_leon.jpg" alt="">
+        </div>
+        <div class="p-4">
+          <span class="inline-block px-2 py-1 leading-none bg-[#5BA6A6] text-white rounded-full font-semibold uppercase tracking-wide text-xs">${category}</span>
+          <h2 class="mt-2 mb-2  font-bold">${jobName}</h2>
+          <p class="text-sm">${seniority}</p>
+          <div class="mt-3 flex items-center">
+            <span class="font-bold text-xl">${location}</span>
           </div>
-         `;
+          <p class="text-sm">${availability}</p>
+        </div>
+        <div class="p-4 border-t border-b text-xs text-gray-700">
+          <button id="btnJobDetails" data-id="${id}" class="btnJobDetails flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>
+        </div>
+      </div>
+    </div>`;
   }
   showDetails();
 };
@@ -117,18 +118,15 @@ const showDetails = () => {
       show($("#cardDetailContainer"));
       const idJob = btn.getAttribute("data-id");
       $(".btnJobDetails").setAttribute("data-id", idJob);
-      $('.cardDetailContainer').setAttribute('data-id', idJob)
-      getJob(idJob).then(data => cardDetails(data));
+      $(".cardDetailContainer").setAttribute("data-id", idJob); 
+      getJob(idJob).then((data) => cardDetails(data));
     });
-
   }
 };
 
 const cardDetails = (idJob) => {
-  const { jobName, description, location, category, availability, seniority, id } = idJob
-
-  $('.cardDetailContainer').innerHTML = `
-  
+  const { jobName, description, location, category, availability, seniority, id } = idJob;
+  $(".cardDetailContainer").innerHTML = `
   <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
       src="./assets/images/pia_leon.jpg" alt="" />
     <div class="flex flex-col justify-between p-4 leading-normal">
@@ -146,27 +144,42 @@ const cardDetails = (idJob) => {
         class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">
         Editar
       </button>
-      <button type="button" id="btnDeleteJob"
-        class=" btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+      <button type="button" id="btnDeleteJob" data-id="${id}"
+        class="btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
         data-modal-toggle="delete-modal">
         Borrar
       </button>
-    </div> 
-  `
-  for (const btn of $$('.btnEditJob')) {
-    btn.addEventListener('click', () => {
+    </div>
+  `;
+  editJob();
+  deleteJobBtn(id);
+};
+
+const editJob = () => {
+  for (const btn of $$(".btnEditJob")) {
+    btn.addEventListener("click", () => {
       const idJob = btn.getAttribute("data-id");
-      $("#deleteJobModal").setAttribute("data-id", idJob);
       $(".btnEditJob").setAttribute("data-id", idJob);
       $("#btnEditJobPut").getAttribute("data-id");
       $("#btnEditJobPut").setAttribute("data-id", idJob);
-
-    })
+      show($("#editJobForm"));
+      hidden($("#cardDetailContainer"));
+    });
   }
+};
+const deleteJobBtn = (idJob) => {
+  for (const btn of $$(".btnDeleteJob")) {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = btn.getAttribute("data-id"); 
+      show($("#delete-modal"));
+      $(".btnDeleteJob").setAttribute("data-id", id); 
+      $(".deleteJobModal").setAttribute("data-id", id);
+    });
+  }
+};
 
-}
-
-//  DOM EVENTS
+// DOM EVENTS
 $("#showCreateJob").addEventListener("click", () => {
   hidden($("#selectContainer"));
   hidden($("#cardContainer"));
@@ -179,32 +192,21 @@ $("#createJobForm").addEventListener("submit", (e) => {
   postJob();
 });
 
-$("#btnDeleteJob").addEventListener("click", () => {
-  show($("#delete-modal"));
-});
-
-$("#deleteJobModal").addEventListener("click", () => {
-  const idJob = $("#deleteJobModal").getAttribute("data-id");
-  $("#deleteJobModal").setAttribute("data-id", idJob);
-  deleteJob(idJob);
+$(".deleteJobModal").addEventListener("click", () => {
+  const id = $(".deleteJobModal").getAttribute("data-id");
+  $(".deleteJobModal").setAttribute("data-id", id);
+  deleteJob(id);
 });
 
 $("#cancel-delete").addEventListener("click", () => {
   hidden($("#delete-modal"));
 });
 
-$(".btnEditJob").addEventListener("click", (e) => {
-  e.preventDefault();
-  show($("#editJobForm"));
-  hidden($("#cardDetailContainer"));
-
-});
-
 $("#btnEditJobPut").addEventListener("click", (e) => {
   e.preventDefault();
   show($("#editJobForm"));
   hidden($("#cardDetailContainer"));
-  const idJob = $("#btnEditJobPut").getAttribute("data-id");
-  $("#btnEditJobPut").setAttribute("data-id", idJob);
-  putJob(idJob);
+  const id = $("#btnEditJobPut").getAttribute("data-id");
+  $("#btnEditJobPut").setAttribute("data-id", id);
+  putJob(id);
 });
