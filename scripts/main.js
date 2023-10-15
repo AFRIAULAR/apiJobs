@@ -5,50 +5,9 @@ const $$ = (selectors) => document.querySelectorAll(selectors);
 // AUXILIARY FUNCTIONS
 const hidden = (selector) => selector.classList.add("hidden");
 const show = (selector) => selector.classList.remove("hidden");
+const clean = (selector) => selector.innerHTML = '';
 
-// API
-const urlBase = "https://6280450a1020d852057b3f0f.mockapi.io/jobs";
-
-// METHODS
-const getJobs = () => {
-  fetch(urlBase)
-    .then((res) => res.json())
-    .then((data) => createCardJob(data));
-};
-getJobs();
-
-const getJob = async (idJob) => {
-  const res = await fetch(`${urlBase}/${idJob}`);
-  const job = await res.json();
-  return job;
-};
-
-const putJob = (idJob) => {
-  fetch(`${urlBase}/${idJob}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json", 
-    },
-    body: JSON.stringify(saveEditedJob()),
-  }).finally(() => (window.location.href = "index.html"));
-};
-
-const postJob = () => {
-  fetch(urlBase, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(saveJob()),
-  }).finally(() => (window.location.href = "index.html"));
-};
-
-const deleteJob = (idJob) => {
-  fetch(`${urlBase}/${idJob}`, {
-    method: "DELETE",
-  }).finally(() => (window.location.href = "index.html"));
-};
-
+//JOB FUNCTIONS
 const saveJob = () => {
   return {
     jobName: $("#titleCreateJob").value,
@@ -67,7 +26,7 @@ const saveEditedJob = () => {
     location: $("#selectLocationEditJob").value,
     category: $("#selectCategoryEditJob").value,
     seniority: $("#selectSeniorityEditJob").value,
-    availability: $("#selectAvailabilityCreateJob").value, 
+    //availability: $("#selectAvailabilityEditJob").value, 
   };
 };
 
@@ -83,29 +42,38 @@ const jobToEdit = (data) => {
 };
 
 // DOM
-const createCardJob = (jobs) => {
-  for (const job of jobs) {
-    const { id, jobName, location, seniority, availability, category } = job;
-    $("#cardContainer").innerHTML += ` 
-    <div class="w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4">
-      <div class="c-card block bg-[#f5f5f5] shadow-md hover:shadow-xl rounded-lg overflow-hidden">
-        <div class="relative pb-48 overflow-hidden">
-          <img class="absolute inset-0 h-full w-full object-cover" src="./assets/images/pia_leon.jpg" alt="">
-        </div>
-        <div class="p-4">
-          <span class="inline-block px-2 py-1 leading-none bg-[#5BA6A6] text-white rounded-full font-semibold uppercase tracking-wide text-xs">${category}</span>
-          <h2 class="mt-2 mb-2  font-bold">${jobName}</h2>
-          <p class="text-sm">${seniority}</p>
-          <div class="mt-3 flex items-center">
-            <span class="font-bold text-xl">${location}</span>
-          </div>
-          <p class="text-sm">${availability}</p>
-        </div>
-        <div class="p-4 border-t border-b text-xs text-gray-700">
-          <button id="btnJobDetails" data-id="${id}" class="btnJobDetails flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>
-        </div>
+const createJob = (job) => {
+  const { id, jobName, location, seniority, availability, category } = job;
+  const cardElement = document.createElement('div');
+  cardElement.className = 'w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4';
+  cardElement.innerHTML = `
+    <div class="c-card block bg-[#f5f5f5] shadow-md hover:shadow-xl rounded-lg overflow-hidden">
+      <div class="relative pb-48 overflow-hidden">
+        <img class="absolute inset-0 h-full w-full object-cover" src="./assets/images/pia_leon.jpg" alt="">
       </div>
-    </div>`;
+      <div class="p-4">
+        <span class="inline-block px-2 py-1 leading-none bg-[#5BA6A6] text-white rounded-full font-semibold uppercase tracking-wide text-xs">${category}</span>
+        <h2 class="mt-2 mb-2 font-bold">${jobName}</h2>
+        <p class="text-sm">${seniority}</p>
+        <div class="mt-3 flex items-center">
+          <span class="font-bold text-xl">${location}</span>
+        </div>
+        <p class="text-sm">${availability}</p>
+      </div>
+      <div class="p-4 border-t border-b text-xs text-gray-700">
+        <button id="btnJobDetails" data-id="${id}" class="btnJobDetails flex items-center bg-[#431545] rounded-full font-semibold px-4 py-2 text-white ml-[70%]">Ver detalles</button>
+      </div>
+    </div>
+  `;
+  return cardElement;
+};
+
+const createCards = (jobs) => {
+ const cardContainer = $('#cardContainer');
+ clean('cardContainer');
+  for (const job of jobs) {
+    const cardElement = createJob(job);
+    cardContainer.appendChild(cardElement);
   }
   showDetails();
 };
@@ -124,36 +92,34 @@ const showDetails = () => {
   }
 };
 
-const cardDetails = (idJob) => {
-  const { jobName, description, location, category, availability, seniority, id } = idJob;
-  $(".cardDetailContainer").innerHTML = `
-  <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-      src="./assets/images/pia_leon.jpg" alt="" />
-    <div class="flex flex-col justify-between p-4 leading-normal">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        ${jobName}
-      </h5>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${category} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${location} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${seniority} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${availability} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${description} </p>
-    </div>
-    <div id="buttonsContainer">
-      <button type="button" id="btnEditJob" data-id="${id}"
-        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">
+const cardDetails = (job) => {
+  show($('#cardDetailContainer'))
+  const { jobName, description, location, category, availability, seniority, id } = job;
+  $("#detailJobName").innerHTML = jobName;
+  $("#detailCategory").innerHTML = category;
+  $("#detailLocation").innerHTML = location;
+  $("#detailSeniority").innerHTML = seniority;
+  $("#detailAvailability").innerHTML = availability;
+  $("#detailDescription").innerHTML = description;
+  btnEditDelete(id);
+  editJob(id); 
+  deleteJobBtn(id); 
+};
+
+const btnEditDelete = (id)=>{
+  const buttonsContainer = $("#buttonsContainer");
+  buttonsContainer.innerHTML = `
+    <button type="button" id="btnEditJob" data-id="${id}"
+        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">
         Editar
-      </button>
-      <button type="button" id="btnDeleteJob" data-id="${id}"
+    </button>
+    <button type="button" id="btnDeleteJob" data-id="${id}"
         class="btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
         data-modal-toggle="delete-modal">
         Borrar
-      </button>
-    </div>
+    </button>
   `;
-  editJob();
-  deleteJobBtn(id);
-};
+}
 
 const editJob = () => {
   for (const btn of $$(".btnEditJob")) {
@@ -167,6 +133,7 @@ const editJob = () => {
     });
   }
 };
+
 const deleteJobBtn = (idJob) => {
   for (const btn of $$(".btnDeleteJob")) {
     btn.addEventListener("click", (e) => {
