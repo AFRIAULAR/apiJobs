@@ -93,6 +93,7 @@ const showDetails = () => {
 };
 
 const cardDetails = (job) => {
+  show($('#cardDetailContainer'))
   const { jobName, description, location, category, availability, seniority, id } = job;
   $("#detailJobName").innerHTML = jobName;
   $("#detailCategory").innerHTML = category;
@@ -100,7 +101,12 @@ const cardDetails = (job) => {
   $("#detailSeniority").innerHTML = seniority;
   $("#detailAvailability").innerHTML = availability;
   $("#detailDescription").innerHTML = description;
+  btnEditDelete(id);
+  editJob(id); 
+  deleteJobBtn(id); 
+};
 
+const btnEditDelete = (id)=>{
   const buttonsContainer = $("#buttonsContainer");
   buttonsContainer.innerHTML = `
     <button type="button" id="btnEditJob" data-id="${id}"
@@ -113,9 +119,7 @@ const cardDetails = (job) => {
         Borrar
     </button>
   `;
-  editJob(); 
-  deleteJobBtn(id); 
-};
+}
 
 const editJob = () => {
   for (const btn of $$(".btnEditJob")) {
@@ -129,6 +133,7 @@ const editJob = () => {
     });
   }
 };
+
 const deleteJobBtn = (idJob) => {
   for (const btn of $$(".btnDeleteJob")) {
     btn.addEventListener("click", (e) => {
