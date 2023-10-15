@@ -1,10 +1,11 @@
 // API
 const urlBase = "https://6280450a1020d852057b3f0f.mockapi.io/jobs"
 
+// CRUD
 const getJobs = () => {
   fetch(urlBase)
     .then((res) => res.json())
-    .then((data) => createCardJob(data));
+    .then((data) => createCards(data));
 };
 getJobs();
 
@@ -21,7 +22,8 @@ const putJob = (idJob) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(saveEditedJob()),
-  }).finally(() => (window.location.href = "index.html"));
+  })
+  .finally(() => (window.location.href = "index.html"));
 };
 
 const postJob = () => {
@@ -31,11 +33,13 @@ const postJob = () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(saveJob()),
-  }).finally(() => (window.location.href = "index.html"));
+  })
+  .finally(() => (window.location.href = "index.html"));
 };
 
 const deleteJob = (idJob) => {
   fetch(`${urlBase}/${idJob}`, {
     method: "DELETE",
-  }).finally(() => (window.location.href = "index.html"));
+  })
+  .finally(() => (window.location.href = "index.html"));
 };
