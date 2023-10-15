@@ -158,71 +158,112 @@
     </div>
   </div>
   <!--  FORM CREATE JOB   -->
-  <form id="createJobForm" method="POST" class="bg-[#f5f5f5] hidden">
-    <div class="relative z-0 mb-6 w-full group">
-      <input type="text" name="titleCreateJob" id="titleCreateJob"
-        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer"
-        placeholder=" " required />
-      <label for="jobTitle"
-        class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título</label>
-    </div>
-    <div>
-      <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"></label>
-      <textarea id="descriptionCreateJob" rows="4"
-        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-        placeholder="Descripción"></textarea>
-    </div>
-    <div class="container mx-auto" id="selectContainerCreateJob">
-      <div class="flex flex-wrap -mx-4" id="flexSelectContainerCreateJob">
-        <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selectsCreateJob">
-          <label for="underline_select" class="sr-only">Underline select</label>
-          <select id="selectCategoryCreateJob"
-            class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Categoría</option>
-            <option value="Cocina">Cocina</option>
-            <option value="Pasteleria">Pastelería</option>
-            <option value="Gerencia">Gerencia</option>
-          </select>
-          <label for="underline_select" class="sr-only">Underline select</label>
-          <select id="selectLocationCreateJob"
-            class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Locación</option>
-            <option value="CABA">CABA</option>
-            <option value="PBA">PBA</option>
-            <option value="Mendoza">Mendoza</option>
-            <option value="SantaFe">Santa Fe</option>
-          </select>
-          <label for="underline_select" class="sr-only">Underline select</label>
-          <select id="selectSeniorityCreateJob"
-            class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Seniority</option>
-            <option value="Junior">Junior</option>
-            <option value="Semi Senior">Semi Senior</option>
-            <option value="Senior">Senior</option>
-          </select>
-          <label for="underline_select" class="sr-only">Underline select</label>
-          <select id="selectAvailabilityCreateJob"
-            class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-            <option selected>Disponibilidad</option>
-            <option value="Part-Time">Part-Time</option>
-            <option value="Full-Time">Full-Time</option>
-          </select>
+    <div class="container max-w-3xl mx-auto pt-6">
+      <form id="createJobForm" method="POST" class="bg-gray-50 hidden rounded-lg" >
+        <div class="block mx-4 text-sm font-medium text-gray-900 dark:text-white p-4">
+          <label class="pt-4 w-10/12 mx-auto block text-gray-700 text-sm font-bold mb-2" for="description">
+            Título del trabajo
+           <input type="text" name="titleCreateJob" id="titleCreateJob"
+            class="block p-2.5 mx-auto  w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer" required/>
+          </label>
         </div>
-      </div>
+        <div class="block mx-4 text-sm font-medium text-gray-900 dark:text-white p-4">
+          <label class="pt-4 w-10/12 mx-auto block text-gray-700 text-sm font-bold mb-2" for="description">
+            Descripción
+          </label>
+          <textarea id="descriptionCreateJob" rows="4"
+            class="block pt-1 w-10/12 mx-auto text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-[#431545] focus:border-[#431545] dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> </textarea>
+        </div>
+        <div class="container mx-auto" id="selectContainerCreateJob">
+          <div class="flex flex-wrap  -mx-4" id="flexSelectContainerCreateJob">
+            <div class="flex flex-wrap justify-around items-stretch w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selectsCreateJob">
+              <select id="selectCategoryCreateJob"
+                class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                <option selected>Categoría</option>
+                <option value="gastronomy">Gastronomía</option>
+                <option value="customerService">Atención al cliente</option>
+                <option value="recreation">Recreación</option>
+                <option value="healthAndWellness">Salud y bienestar</option>
+                <option value="operations">Operaciones</option>
+              </select>
+              <select id="selectOptionsCreateJob"
+                class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#431545] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                <option selected>Locación</option>
+                <option value="mediterranean">Mediterráneo</option>
+                <option value="southAmerica">América del Sur</option>
+                <option value="northAmerica">América del Norte</option>
+                <option value="caribbean">Caribe</option>
+                <option value="europe">Europa</option>
+                <option value="bahamas">Bahamas</option>
+              </select>
+            </div>
+            <div id="requiredCont" class="flex flex-col justify-between items-stretch mx-auto">
+                <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="requirements">
+                  Requisitos
+                </label>
+                <input
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="requirements" type="text" required>
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="salary">
+                  Salario
+                </label>
+                <input
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="salary" type="text" required>
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Beneficios</label>
+                <input type="checkbox" id="vacations" class="mr-2" value="true">
+                <label for="vacations" class="mr-4">Vacaciones</label>
+                <input type="checkbox" id="discount" class="mr-2" value="true">
+                <label for="discount" class="mr-4">Descuentos empresariales</label>
+                <input type="checkbox" id="medicalInsurance" class="mr-2" value="true">
+                <label for="medicalInsurance">Seguro de Salud</label>
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">
+                  Idiomas
+                </label>
+                <div class="flex flex-wrap">
+                  <label class="mr-4">
+                    <input type="checkbox" class="mr-1" value="EN"> Inglés
+                  </label>
+                  <label class="mr-4">
+                    <input type="checkbox" class="mr-1" value="ES"> Español
+                  </label>
+                  <label class="mr-4">
+                    <input type="checkbox" class="mr-1" value="IT"> Italiano
+                  </label>
+                  <label class="mr-4">
+                    <input type="checkbox" class="mr-1" value="FR"> Francés
+                  </label>
+                  <label>
+                    <input type="checkbox" class="mr-1" value="PR"> Portugués
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="btnSubmit" class="flex justify-center p-6">
+          <button type="submit"
+          class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          id="buttonCreateJob">
+          Crear Trabajo
+        </button>
+        </div>
+      </form>
     </div>
-    <button type="submit"
-      class="text-white bg-[#431545] hover:bg-[#68436a] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      id="buttonCreateJob">
-      Crear
-    </button>
-  </form>
+
 
   <!--  FORM EDIT JOB   -->
   <form id="editJobForm" class="bg-[#f5f5f5] hidden">
     <div class="relative z-0 mb-6 w-full group">
       <input type="text" name="titleEditJob" id="titleEditJob"
-        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer"
-        placeholder=" " required />
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#431545] peer" required />
       <label for="floating_title"
         class="peer-focus:font-medium absolute text-sm text-gray-500 pt-2 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#431545] peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título</label>
     </div>
@@ -296,7 +337,7 @@
       </li>
     </ul>
   </footer>
-  <script src="./scripts/apigit .js"></script>
+  <script src="./scripts/api.js"></script>
   <script src="./scripts/main.js"></script>
 </body>
 
