@@ -9,15 +9,23 @@ const clean = (selector) => selector.innerHTML = '';
 
 //JOB FUNCTIONS
 const saveJob = () => {
-  return {
+  const formData = {
     jobName: $("#titleCreateJob").value,
     description: $("#descriptionCreateJob").value,
-    location: $("#selectLocationCreateJob").value,
+    location: $("#selectOptionsCreateJob").value,
     category: $("#selectCategoryCreateJob").value,
-    seniority: $("#selectSeniorityCreateJob").value,
-    availability: $("#selectAvailabilityCreateJob").value,
+    requirements: $("#requirements").value,
+    salary: $("#salary").value,
+    benefits: {
+      vacations: $("#vacations").checked,
+      discount: $("#discount").checked,
+      medicalInsurance: $("#medicalInsurance").checked,
+    },
+    languages: Array.from($$('[type="checkbox"]:checked')).map((checkbox) => checkbox.value),
   };
+  return formData;
 };
+
 
 const saveEditedJob = () => {
   return {
@@ -26,7 +34,7 @@ const saveEditedJob = () => {
     location: $("#selectLocationEditJob").value,
     category: $("#selectCategoryEditJob").value,
     seniority: $("#selectSeniorityEditJob").value,
-    //availability: $("#selectAvailabilityEditJob").value, 
+    
   };
 };
 
