@@ -26,7 +26,7 @@ const saveEditedJob = () => {
     location: $("#selectLocationEditJob").value,
     category: $("#selectCategoryEditJob").value,
     seniority: $("#selectSeniorityEditJob").value,
-    availability: $("#selectAvailabilityEditJob").value, 
+    //availability: $("#selectAvailabilityEditJob").value, 
   };
 };
 
@@ -92,35 +92,29 @@ const showDetails = () => {
   }
 };
 
-const cardDetails = (idJob) => {
-  const { jobName, description, location, category, availability, seniority, id } = idJob;
-  $(".cardDetailContainer").innerHTML = `
-  <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-      src="./assets/images/pia_leon.jpg" alt="" />
-    <div class="flex flex-col justify-between p-4 leading-normal">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        ${jobName}
-      </h5>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${category} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${location} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${seniority} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${availability} </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${description} </p>
-    </div>
-    <div id="buttonsContainer">
-      <button type="button" id="btnEditJob" data-id="${id}"
-        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#5BA6A6] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">
+const cardDetails = (job) => {
+  const { jobName, description, location, category, availability, seniority, id } = job;
+  $("#detailJobName").innerHTML = jobName;
+  $("#detailCategory").innerHTML = category;
+  $("#detailLocation").innerHTML = location;
+  $("#detailSeniority").innerHTML = seniority;
+  $("#detailAvailability").innerHTML = availability;
+  $("#detailDescription").innerHTML = description;
+
+  const buttonsContainer = $("#buttonsContainer");
+  buttonsContainer.innerHTML = `
+    <button type="button" id="btnEditJob" data-id="${id}"
+        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#5BA6A6] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">
         Editar
-      </button>
-      <button type="button" id="btnDeleteJob" data-id="${id}"
+    </button>
+    <button type="button" id="btnDeleteJob" data-id="${id}"
         class="btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#431545] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
         data-modal-toggle="delete-modal">
         Borrar
-      </button>
-    </div>
+    </button>
   `;
-  editJob();
-  deleteJobBtn(id);
+  editJob(); 
+  deleteJobBtn(id); 
 };
 
 const editJob = () => {
