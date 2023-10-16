@@ -26,15 +26,20 @@ const saveJob = () => {
   return formData;
 };
 
-
 const saveEditedJob = () => {
   return {
     jobName: $("#titleEditJob").value,
     description: $("#descriptionEditJob").value,
     location: $("#selectLocationEditJob").value,
     category: $("#selectCategoryEditJob").value,
-    seniority: $("#selectSeniorityEditJob").value,
-    
+    requirements: $("#requirementsEdit").value,
+    salary: $("#salaryEdit").value,
+    benefits: {
+      vacations: $("#vacations").checked,
+      discount: $("#discount").checked,
+      medicalInsurance: $("#medicalInsurance").checked,
+    },
+    languages: Array.from($$('[type="checkbox"]:checked')).map((checkbox) => checkbox.value),
   };
 };
 
@@ -43,8 +48,6 @@ const jobToEdit = (data) => {
   $("#btnEditJob").setAttribute("data-id", idJob);
   $("#titleEditJob").value = data.jobName;
   $("#descriptionEditJob").value = data.description;
-  $("#selectAvailabilityEditJob").value = data.availability; 
-  $("#selectSeniorityEditJob").value = data.seniority;
   $("#selectCategoryEditJob").value = data.category;
   $("#selectLocationEditJob").value = data.location;
 };
