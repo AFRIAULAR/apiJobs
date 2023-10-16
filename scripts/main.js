@@ -23,7 +23,7 @@ const saveJob = () => {
     },
     languages: Array.from($$('[type="checkbox"]:checked'))
       .map((checkbox) => checkbox.value)
-    
+      .filter(value => value !== 'true')
   };
   return formData;
 };
@@ -41,7 +41,9 @@ const saveEditedJob = () => {
       discount: $("#discount").checked,
       medicalInsurance: $("#medicalInsurance").checked,
     },
-    languages: Array.from($$('[type="checkbox"]:checked')).map((checkbox) => checkbox.value),
+    languages: Array.from($$('[type="checkbox"]:checked'))
+      .map((checkbox) => checkbox.value)
+      .filter(value => value !== 'true')
   };
 };
 
