@@ -47,7 +47,6 @@ const saveEditedJob = () => {
   };
 };
 
-
 const jobToEdit = (data) => {
   const idJob = $("#btnEditJob").getAttribute("data-id");
   $("#btnEditJob").setAttribute("data-id", idJob);
@@ -55,7 +54,26 @@ const jobToEdit = (data) => {
   $("#descriptionEditJob").value = data.description;
   $("#selectCategoryEditJob").value = data.category;
   $("#selectLocationEditJob").value = data.location;
+  $("#requirementsEdit").value = data.requirements;
+  $("#salaryEdit").value = data.salary;
+  const selectedBenefits = data.benefits;
+  const selectedLanguages = data.languages;
+
+  Object.keys(selectedBenefits).forEach(key => {
+    const checkbox = $(`#${key}`);
+    if (checkbox) {
+      checkbox.checked = selectedBenefits[key];
+    }
+  });
+
+  selectedLanguages.forEach(language => {
+    const checkbox = $(`[value="${language}"]`);
+    if (checkbox) {
+      checkbox.checked = true;
+    }
+  });
 };
+
 
 // DOM
 const createJob = (job) => {
@@ -153,6 +171,7 @@ const editJob = () => {
       $("#btnEditJobPut").setAttribute("data-id", idJob);
       show($("#editJobForm"));
       hidden($("#cardDetailContainer"));
+      completeFieldsForm(job)
     });
   }
 };
@@ -168,6 +187,13 @@ const deleteJobBtn = (idJob) => {
     });
   }
 };
+
+const completeFieldsForm = (job)=>{
+  $("#titleEditJob").value = job.jobName;
+  $("#descriptionEditJob").value = job.description;
+  $("#selectLocationEditJob").value = job.location;
+  $("#selectCategoryEditJob").value = job.category;
+}
 
 // DOM EVENTS
 $("#showCreateJob").addEventListener("click", () => {
