@@ -114,12 +114,15 @@ const showDetails = () => {
 
 const cardDetails = (job) => {
   show($('#cardDetailContainer'))
-  const { jobName, description, location, category, availability, seniority, id } = job;
+  const { id, jobName, location, category, requirements, salary, benefits, languages, description } = job;
+  const selectedBenefits = Object.keys(benefits).filter(key => benefits[key]);
   $("#detailJobName").innerHTML = jobName;
   $("#detailCategory").innerHTML = category;
   $("#detailLocation").innerHTML = location;
-  $("#detailSeniority").innerHTML = seniority;
-  $("#detailAvailability").innerHTML = availability;
+  $("#detailRequirements").innerHTML = requirements;
+  $("#detailSalary").innerHTML = salary;
+  $("#detailBenefits").innerHTML = `${selectedBenefits.join(', ')}`;
+  $("#detailLanguages").innerHTML = languages;
   $("#detailDescription").innerHTML = description;
   btnEditDelete(id);
   editJob(id); 
