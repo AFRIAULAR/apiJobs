@@ -44,28 +44,45 @@ const saveEditedJob = () => {
     languages: Array.from($$('[type="checkbox"]:checked'))
       .map((checkbox) => checkbox.value)
       .filter(value => value !== 'true')
-  };
+    };
 };
 
-const jobToEdit = (data) => {
-  const idJob = $("#btnEditJob").getAttribute("data-id");
-  $("#btnEditJob").setAttribute("data-id", idJob);
+const completeFormFields = (data) => {
   $("#titleEditJob").value = data.jobName;
   $("#descriptionEditJob").value = data.description;
   $("#selectCategoryEditJob").value = data.category;
   $("#selectLocationEditJob").value = data.location;
   $("#requirementsEdit").value = data.requirements;
   $("#salaryEdit").value = data.salary;
-  const selectedBenefits = data.benefits;
-  const selectedLanguages = data.languages;
+  $("#benefitsEdit").value = data.benefits;
+  
+  if (data.benefits) {
+    $("#vacations").checked = data.benefits.vacations;
+    $("#discount").checked = data.benefits.discount;
+    $("#medicalInsurance").checked = data.benefits.medicalInsurance;
+  }
 
+  if (data.languages) {
+    data.languages.forEach((language) => {
+      const checkbox = $(`[value="${language}"]`);
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    });
+  }
+
+};
+
+const benefitsChecked = (selectedBenefits) => {
   Object.keys(selectedBenefits).forEach(key => {
     const checkbox = $(`#${key}`);
     if (checkbox) {
       checkbox.checked = selectedBenefits[key];
     }
   });
+};
 
+const languagesChecked = (selectedLanguages) => {
   selectedLanguages.forEach(language => {
     const checkbox = $(`[value="${language}"]`);
     if (checkbox) {
@@ -74,6 +91,13 @@ const jobToEdit = (data) => {
   });
 };
 
+const jobToEdit = (data) => {
+  const idJob = $("#btnEditJob").getAttribute("data-id");
+  $("#btnEditJob").setAttribute("data-id", idJob);
+  completeFormFields(data);
+  benefitsChecked(data.benefits);
+  languagesChecked(data.languages);
+};
 
 // DOM
 const createJob = (job) => {
@@ -167,14 +191,17 @@ const editJob = () => {
     btn.addEventListener("click", () => {
       const idJob = btn.getAttribute("data-id");
       $(".btnEditJob").setAttribute("data-id", idJob);
-      $("#btnEditJobPut").getAttribute("data-id");
-      $("#btnEditJobPut").setAttribute("data-id", idJob);
+      $("#btnEditJobPut").setAttribute("data-id", idJob); 
       show($("#editJobForm"));
       hidden($("#cardDetailContainer"));
-      completeFieldsForm(job)
+      getJob(idJob).then((data) => {
+        completeFormFields(data);
+        jobToEdit(data);
+      });
     });
   }
 };
+
 
 const deleteJobBtn = (idJob) => {
   for (const btn of $$(".btnDeleteJob")) {
@@ -188,12 +215,6 @@ const deleteJobBtn = (idJob) => {
   }
 };
 
-const completeFieldsForm = (job)=>{
-  $("#titleEditJob").value = job.jobName;
-  $("#descriptionEditJob").value = job.description;
-  $("#selectLocationEditJob").value = job.location;
-  $("#selectCategoryEditJob").value = job.category;
-}
 
 // DOM EVENTS
 $("#showCreateJob").addEventListener("click", () => {

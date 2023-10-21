@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="icon" type="image/jpg" href="./assets/images/favicon.ico" />
-  <title>Jobs</title>
+  <title>Cruise Crew</title>
 </head>
 
 <body class="bg-white font-sans">
@@ -35,7 +35,7 @@
       </label>
       <a href="#" class="flex items-center">
         <img src="./assets/images/undraw_personal_file_re_5joy.svg" class="h-6 mr-3 sm:h-10" alt="buffet jobs Logo" />
-        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Buffet Jobs</span>
+        <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Cruise Crew</span>
       </a>
       <button data-collapse-toggle="navbar-solid-bg" type="button"
         class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -222,11 +222,11 @@
               </div>
               <div class="mb-4">
                 <label class="block text-gray-700 text-sm font-bold mb-2">Beneficios</label>
-                <input type="checkbox" id="vacations" class="mr-2" value="true">
+                <input type="checkbox" id="vacations" class="mr-2" value="true" name="benefits">
                 <label for="vacations" class="mr-4">Vacaciones</label>
-                <input type="checkbox" id="discount" class="mr-2" value="true">
+                <input type="checkbox" id="discount" class="mr-2" value="true" name="benefits">
                 <label for="discount" class="mr-4">Descuentos empresariales</label>
-                <input type="checkbox" id="medicalInsurance" class="mr-2" value="true">
+                <input type="checkbox" id="medicalInsurance" class="mr-2" value="true" name="benefits">
                 <label for="medicalInsurance">Seguro de Salud</label>
               </div>
               <div class="mb-4">
@@ -322,12 +322,12 @@
               id="salaryEdit" type="number" required>
           </div>
           <div class="mb-4">
-            <label class="block text-gray-700 text-sm font-bold mb-2">Beneficios</label>
-            <input type="checkbox" id="vacations" class="mr-2" value="true">
+            <label class="block text-gray-700 text-sm font-bold mb-2" id="benefitsEdit">Beneficios</label>
+            <input type="checkbox" id="vacations" class="mr-2" value="true" name="benefits">
             <label for="vacations" class="mr-4">Vacaciones</label>
-            <input type="checkbox" id="discount" class="mr-2" value="true">
+            <input type="checkbox" id="discount" class="mr-2" value="true" name="benefits">
             <label for="discount" class="mr-4">Descuentos empresariales</label>
-            <input type="checkbox" id="medicalInsurance" class="mr-2" value="true">
+            <input type="checkbox" id="medicalInsurance" class="mr-2" value="true" name="benefits">
             <label for="medicalInsurance">Seguro de Salud</label>
           </div>
           <div class="mb-4">
