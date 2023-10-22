@@ -16,41 +16,27 @@
 
 <body class="bg-white font-sans">
   <!--      NAVBAR      -->
-  <nav class="p-3 border-gray-200 rounded bg-[#011f4b] dark:bg-gray-800 dark:border-gray-700">
+  <nav class="p-3 border-gray-200 rounded bg-[#011f4b]">
     <div class="container flex flex-wrap items-center justify-between mx-auto">
       <label class="inline-flex relative items-center cursor-pointer">
         <input type="checkbox" value="" class="sr-only peer" />
-        <div id="darkTheme"
-          class="w-11 h-6 bg-[#fed766] peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-gray-700 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#dccac9]">
-        </div>
-        <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
+        <span class="ml-3 text-sm font-medium text-gray-900"></span>
       </label>
       <a href="#" class="flex items-center">
         <img src="./assets/images/cruise.svg" class="h-6 mr-3 sm:h-10" alt="cruiseCrew logo" />
         <span class="self-center text-xl font-semibold whitespace-nowrap text-white">Cruise Crew</span>
       </a>
-      <button data-collapse-toggle="navbar-solid-bg" type="button"
-        class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-        aria-controls="navbar-solid-bg" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd"
-            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-            clip-rule="evenodd"></path>
-        </svg>
-      </button>
       <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
         <ul
-          class="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+          class="flex flex-col mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-transparent">
           <li>
             <a href="#"
-              class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-2 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+              class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-white md:p-2"
               aria-current="page">Inicio</a>
           </li>
           <li>
             <button type="submit" id="showCreateJob"
-              class="text-[#333333] bg-[#fed766] hover:bg-[#84c1ff] focus:ring-2 focus:outline-none focus:ring-[#84c1ff] font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-[#dccac9] dark:hover:bg-[#dccac9] dark:focus:ring-blue-800">
+              class="text-[#333333] bg-[#fed766] hover:bg-[#84c1ff] focus:ring-2 focus:outline-none focus:ring-[#84c1ff] font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
               Crear vacante
             </button>
           </li>
@@ -62,9 +48,8 @@
   <div class="container mx-auto" id="selectContainer">
     <div class="flex flex-wrap -mx-4" id="flexSelectContainer">
       <div class="flex flex-wrap w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selects">
-        
         <select id="selectCategory"
-          class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#011f4b] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+          class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#011f4b] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none">
           <option selected>Categoría</option>
           <option value="Gastronomía">Gastronomía</option>
           <option value="Atención al Cliente">Atención al cliente</option>
@@ -74,7 +59,7 @@
           </select>
         
         <select id="selectLocation"
-          class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[##011f4b] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+          class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[##011f4b] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none">
           <option selected>Locación</option>
           <option value="Mediterráneo">Mediterráneo</option>
           <option value="América del Sur">América del Sur</option>
@@ -85,7 +70,7 @@
           </select>
         
         <select id="selectSalary"
-          class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[##011f4b] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+          class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-[#011f4b] font-bold bg-transparent border-0 border-b-2 border-gray-200 appearance-none">
           <option selected>Salario</option>
           <option value="$0 a $2500">$0 a $2500</option>
           <option value="$2501 a $5000">$2501 a $5000</option>
@@ -110,19 +95,19 @@
   <!--      JOB DETAIL    -->
 
   <div id="cardDetailContainer"
-    class="cardDetailContainer hidden flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    class="cardDetailContainer hidden flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100">
     <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" id="jobDetailImage"
-      src="./assets/images/gastronomia.jpg" alt="" />
+      src="" alt="" />
     <div class="flex flex-col justify-between p-4 leading-normal">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" id="detailJobName">
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900" id="detailJobName">
       </h5>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="detailCategory"> </p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="detailLocation"></p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="detailRequirements"></p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="detailSalary"></p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="detailBenefits"></p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="detailLanguages"></p>
-      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400" id="detailDescription"></p>
+      <p class="mb-3 font-normal text-gray-700" id="detailCategory"> </p>
+      <p class="mb-3 font-normal text-gray-700" id="detailLocation"></p>
+      <p class="mb-3 font-normal text-gray-700" id="detailRequirements"></p>
+      <p class="mb-3 font-normal text-gray-700" id="detailSalary"></p>
+      <p class="mb-3 font-normal text-gray-700" id="detailBenefits"></p>
+      <p class="mb-3 font-normal text-gray-700" id="detailLanguages"></p>
+      <p class="mb-3 font-normal text-gray-700" id="detailDescription"></p>
     </div>
     <div id="buttonsContainer"></div>
   </div>
@@ -131,28 +116,28 @@
   <div id="delete-modal" tabindex="-1"
     class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
     <div class="relative w-full h-full max-w-md md:h-auto">
-      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <div class="relative bg-white rounded-lg shadow">
         <button type="button"
-          class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+          class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
           data-modal-toggle="delete-modal">
           <span class="sr-only">Close modal</span>
         </button>
         <div class="p-6 text-center">
-          <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none"
+          <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14" fill="none"
             stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
           </svg>
-          <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+          <h3 class="mb-5 text-lg font-normal text-gray-500">
             Estás seguro de querer borrar este trabajo?
           </h3>
           <button data-modal-toggle="delete-modal" type="button"
-            class="deleteJobModal text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+            class="deleteJobModal text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300"
             id="deleteJobModal">
             Si, estoy seguro
           </button>
           <button data-modal-toggle="delete-modal" type="button"
-            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+            class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
             id="cancel-delete">
             Cancelar
           </button>
@@ -163,25 +148,25 @@
   <!--  FORM CREATE JOB   -->
     <div class="container max-w-3xl mx-auto pt-6">
       <form id="createJobForm" method="POST" class="bg-gray-50 hidden rounded-lg" >
-        <div class="block mx-4 text-sm font-medium text-gray-900 dark:text-white p-4">
+        <div class="block mx-4 text-sm font-medium text-gray-900">
           <label class="pt-4 w-10/12 mx-auto block text-gray-700 text-sm font-bold mb-2" for="description">
             Título del trabajo
            <input type="text" name="titleCreateJob" id="titleCreateJob"
-            class="block p-2.5 mx-auto  w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[##011f4b] peer" required/>
+            class="block p-2.5 mx-auto  w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none" required/>
           </label>
         </div>
-        <div class="block mx-4 text-sm font-medium text-gray-900 dark:text-white p-4">
+        <div class="block mx-4 text-sm font-medium text-gray-900">
           <label class="pt-4 w-10/12 mx-auto block text-gray-700 text-sm font-bold mb-2" for="description">
             Descripción
           </label>
           <textarea id="descriptionCreateJob" rows="4"
-            class="block pt-1 w-10/12 mx-auto text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-[##011f4b] focus:border-[##011f4b] dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"> </textarea>
+            class="block pt-1 w-10/12 mx-auto text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-[#011f4b] focus:border-[#011f4b]"> </textarea>
         </div>
         <div class="container mx-auto" id="selectContainerCreateJob">
           <div class="flex flex-wrap  -mx-4" id="flexSelectContainerCreateJob">
             <div class="flex flex-wrap justify-around items-stretch w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selectsCreateJob">
               <select id="selectCategoryCreateJob"
-                class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[##011f4b] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#011f4b] appearance-none">
                 <option selected>Categoría</option>
                 <option value="Gastronomía">Gastronomía</option>
                 <option value="Atención al Cliente">Atención al cliente</option>
@@ -190,7 +175,7 @@
                 <option value="Operaciones">Operaciones</option>
               </select>
               <select id="selectOptionsCreateJob"
-                class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[##011f4b] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+                class="block py-2.5 px-0 w-full md:w-1/4 xl:w-1/4 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#011f4b] appearance-none">
                 <option selected>Locación</option>
                 <option value="Mediterráneo">Mediterráneo</option>
                 <option value="América del Sur">América del Sur</option>
@@ -253,7 +238,7 @@
         </div>
         <div id="btnSubmit" class="flex justify-center p-6">
           <button type="submit"
-          class="text-white bg-[#011f4b] hover:bg-[#84c1ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          class="text-white bg-[#011f4b] hover:bg-[#84c1ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           id="buttonCreateJob">
           Crear Trabajo
         </button>
@@ -268,20 +253,20 @@
       <label class="pt-4 w-10/12 mx-auto block text-gray-700 text-sm font-bold mb-2" for="description">
         Título del trabajo
       <input type="text" name="titleEditJob" id="titleEditJob"
-        class="block p-2.5 mx-auto  w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-[#011f4b] peer" required /></label>
+        class="block p-2.5 mx-auto  w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none" required /></label>
     </div>
-    <div class="block mx-4 text-sm font-medium text-gray-900 dark:text-white p-4">
+    <div class="block mx-4 text-sm font-medium text-gray-900">
       <label class="pt-4 w-10/12 mx-auto block text-gray-700 text-sm font-bold mb-2" for="description">
         Descripción
       </label>
       <textarea id="descriptionEditJob" value="" rows="4"
-        class="block pt-1 w-10/12 mx-auto text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-[#011f4b] focus:border-[#011f4b] dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></textarea>
+        class="block pt-1 w-10/12 mx-auto text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-[#011f4b] focus:border-[#011f4b]"></textarea>
     </div>
     <div class="container mx-auto" id="selectContainerEditJob">
       <div class="flex flex-wrap" id="flexSelectContainerEditJob">
         <div class="flex flex-wrap justify-around items-stretch w-full sm:w-1/2 md:w-full xl:w-full p-4" id="selects">
           <select id="selectCategoryEditJob"
-            class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#011f4b] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+            class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#011f4b] appearance-none">
             <option selected>Categoría</option>
             <option value="Gastronomía">Gastronomía</option>
             <option value="Atención al Cliente">Atención al cliente</option>
@@ -290,7 +275,7 @@
             <option value="Operaciones">Operaciones</option>
             </select>
           <select id="selectLocationEditJob"
-            class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#011f4b] appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
+            class="block py-2.5 px-0 w-full md:w-1/3 xl:w-1/3 text-sm text-gray-400 bg-transparent border-0 border-b-2 border-[#011f4b] appearance-none">
             <option selected>Locación</option>
             <option value="Mediterráneo">Mediterráneo</option>
             <option value="América del Sur">América del Sur</option>
@@ -355,11 +340,11 @@
     </div>
     <div id="buttonsEditContainer" class="flex justify-center p-6">
       <button type="button" id="btnEditJobPut"
-        class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#011f4b] rounded-lg border border-gray-200 hover:bg-[#84c1ff] hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e] btnEditJob">
+        class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-white focus:outline-none bg-[#011f4b] rounded-lg border border-gray-200 hover:bg-[#84c1ff] hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200 btnEditJob">
         Editar
       </button>
       <button type="clear" id="btnDeleteJob"
-        class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#011f4b] focus:outline-none bg-gray-100 rounded-lg border border-gray-200 hover:bg-[#84c1ff] hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 btnDeleteJob">
+        class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#011f4b] focus:outline-none bg-gray-100 rounded-lg border border-gray-200 hover:bg-[#84c1ff] hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200 btnDeleteJob">
         Deshacer
       </button>
     </div>
@@ -367,11 +352,10 @@
 
   <!--      FOOTER      -->
   <footer
-    class="p-4 mb-0 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
-    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023<a href="#"
-        class="hover:underline">AFRIAULAR</a>
+    class="p-4 mb-0 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-6 ">© 2023 <a href="#"
+        class="hover:underline"> AFRIAULAR</a>
     </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
+    <ul class="flex flex-wrap items-center mt-3 text-sm text-gray-500">
       <li>
         <a href="#" class="mr-4 hover:underline md:mr-6">About</a>
       </li>

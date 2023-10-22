@@ -194,11 +194,11 @@ const btnEditDelete = (id)=>{
   const buttonsContainer = $("#buttonsContainer");
   buttonsContainer.innerHTML = `
     <button type="button" id="btnEditJob" data-id="${id}"
-        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#84c1ff] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-[#45818e]">
+        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#84c1ff] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200">
         Editar
     </button>
     <button type="button" id="btnDeleteJob" data-id="${id}"
-        class="btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        class="btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200"
         data-modal-toggle="delete-modal">
         Borrar
     </button>
