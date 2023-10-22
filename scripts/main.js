@@ -8,6 +8,23 @@ const show = (selector) => selector.classList.remove("hidden");
 const clean = (selector) => selector.innerHTML = '';
 
 //JOB FUNCTIONS
+const getRandomImage = () => {
+  const imagePaths = [
+    '../assets/images/cruise-crew1.jpg',
+    '../assets/images/cruise-crew10.jpg',
+    '../assets/images/cruise-crew2.jpg',
+    '../assets/images/cruise-crew3.jpeg',
+    '../assets/images/cruise-crew4.jpeg',
+    '../assets/images/cruise-crew5.jpg',
+    '../assets/images/cruise-crew6.jpg',
+    '../assets/images/cruise-crew7.jpg',
+    '../assets/images/cruise-crew8.jpg',
+    '../assets/images/cruise-crew9.jpg',
+  ];
+  const randomIndex = Math.floor(Math.random() * imagePaths.length);
+  return imagePaths[randomIndex];
+};
+
 const saveJob = () => {
   const formData = {
     jobName: $("#titleCreateJob").value,
@@ -105,11 +122,11 @@ const createJob = (job) => {
   const cardElement = document.createElement('div');
   cardElement.className = 'w-full sm:w-1/2 md:w-1/2 xl:w-1/4 p-4';
   const selectedBenefits = Object.keys(benefits).filter(key => benefits[key]);
-
+  const imagePath = getRandomImage()
   cardElement.innerHTML = `
     <div class="c-card block bg-[#f5f5f5] shadow-md hover:shadow-xl rounded-lg overflow-hidden">
       <div class="relative pb-48 overflow-hidden">
-        <img class="absolute inset-0 h-full w-full object-cover" src="./assets/images/pia_leon.jpg" alt="">
+        <img class="absolute inset-0 h-full w-full object-cover" src="${imagePath}" alt="">
       </div>
       <div class="p-4">
         <h2 class="mt-2 mb-2 font-bold">${jobName}</h2>
@@ -158,6 +175,7 @@ const cardDetails = (job) => {
   show($('#cardDetailContainer'))
   const { id, jobName, location, category, requirements, salary, benefits, languages, description } = job;
   const selectedBenefits = Object.keys(benefits).filter(key => benefits[key]);
+  const imagePath = getRandomImage();
   $("#detailJobName").innerHTML = jobName;
   $("#detailCategory").innerHTML = category;
   $("#detailLocation").innerHTML = location;
@@ -166,6 +184,7 @@ const cardDetails = (job) => {
   $("#detailBenefits").innerHTML = `${selectedBenefits.join(', ')}`;
   $("#detailLanguages").innerHTML = languages;
   $("#detailDescription").innerHTML = description;
+  $("#jobDetailImage").src = imagePath;
   btnEditDelete(id);
   editJob(id); 
   deleteJobBtn(id); 
