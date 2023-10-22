@@ -7,7 +7,7 @@ const hidden = (selector) => selector.classList.add("hidden");
 const show = (selector) => selector.classList.remove("hidden");
 const clean = (selector) => selector.innerHTML = '';
 
-//JOB FUNCTIONS
+//RANDOM IMAGE
 const getRandomImage = () => {
   const imagePaths = [
     '../assets/images/cruise-crew1.jpg',
@@ -25,6 +25,7 @@ const getRandomImage = () => {
   return imagePaths[randomIndex];
 };
 
+//JOB FUNCTIONS
 const saveJob = () => {
   const formData = {
     jobName: $("#titleCreateJob").value,
@@ -190,20 +191,22 @@ const cardDetails = (job) => {
   deleteJobBtn(id); 
 };
 
-const btnEditDelete = (id)=>{
+const btnEditDelete = (id) => {
   const buttonsContainer = $("#buttonsContainer");
   buttonsContainer.innerHTML = `
-    <button type="button" id="btnEditJob" data-id="${id}"
-        class="btnEditJob py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#84c1ff] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200">
+    <div class="flex justify-center mt-4">
+      <button type="button" id="btnEditJob" data-id="${id}"
+        class="btnEditJob py-2.5 px-5 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#84c1ff] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200">
         Editar
-    </button>
-    <button type="button" id="btnDeleteJob" data-id="${id}"
-        class="btnDeleteJob block py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200"
+      </button>
+      <button type="button" id="btnDeleteJob" data-id="${id}"
+        class="btnDeleteJob py-2.5 px-5 ml-2 mb-2 text-sm font-medium text-[#f5f5f5] focus:outline-none bg-[#0d191c] rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#011f4b] focus:z-10 focus:ring-4 focus:ring-gray-200"
         data-modal-toggle="delete-modal">
         Borrar
-    </button>
+      </button>
+    </div>
   `;
-}
+};
 
 const editJob = () => {
   for (const btn of $$(".btnEditJob")) {

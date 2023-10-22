@@ -94,14 +94,13 @@
 
   <!--      JOB DETAIL    -->
 
-  <div id="cardDetailContainer"
-    class="cardDetailContainer hidden flex flex-col items-center bg-white border rounded-lg shadow-md md:flex-row md:max-w-xl hover:bg-gray-100">
-    <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" id="jobDetailImage"
-      src="" alt="" />
+<div id="cardDetailContainer" class="cardDetailContainer hidden mx-auto ">
+  <div class="flex flex-col items-center md:flex-col md:max-w-xl  mx-auto mt-6 bg-[#f5f5f5] rounded-lg p-4">
+    <img class="object-cover w-full rounded-lg h-96 md:h-auto md:w-48 md:rounded-l-lg" id="jobDetailImage" src=""
+      alt="" />
     <div class="flex flex-col justify-between p-4 leading-normal">
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900" id="detailJobName">
-      </h5>
-      <p class="mb-3 font-normal text-gray-700" id="detailCategory"> </p>
+      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900" id="detailJobName"></h5>
+      <p class="mb-3 font-normal text-gray-700" id="detailCategory"></p>
       <p class="mb-3 font-normal text-gray-700" id="detailLocation"></p>
       <p class="mb-3 font-normal text-gray-700" id="detailRequirements"></p>
       <p class="mb-3 font-normal text-gray-700" id="detailSalary"></p>
@@ -111,10 +110,11 @@
     </div>
     <div id="buttonsContainer"></div>
   </div>
+</div>
+
 
   <!--MODAL TO CONFIRM DELETE-->
-  <div id="delete-modal" tabindex="-1"
-    class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+  <div id="delete-modal" tabindex="-1" class="z-50 hidden fixed inset-0 flex items-center justify-center p-4 overflow-x-hidden overflow-y-auto">
     <div class="relative w-full h-full max-w-md md:h-auto">
       <div class="relative bg-white rounded-lg shadow">
         <button type="button"
@@ -132,7 +132,7 @@
             Estás seguro de querer borrar este trabajo?
           </h3>
           <button data-modal-toggle="delete-modal" type="button"
-            class="deleteJobModal text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300"
+            class="deleteJobModal text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 rounded-lg px-6 py-3"
             id="deleteJobModal">
             Si, estoy seguro
           </button>
@@ -145,6 +145,7 @@
       </div>
     </div>
   </div>
+  
   <!--  FORM CREATE JOB   -->
     <div class="container max-w-3xl mx-auto pt-6">
       <form id="createJobForm" method="POST" class="bg-gray-50 hidden rounded-lg" >
