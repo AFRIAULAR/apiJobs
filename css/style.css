@@ -24,12 +24,12 @@
 
 #spinner span:nth-child(1) {
   color: transparent;
-  -webkit-text-stroke: 0.3px #3498DB;
+  -webkit-text-stroke: 0.3px #011f4b;
 }
 
 #spinner span:nth-child(2) {
-  color: #3498DB;
-  -webkit-text-stroke: 1px #3498DB;
+  color: #011f4b;
+  -webkit-text-stroke: 1px #011f4b;
   animation: uiverse723 3s ease-in-out infinite;
 }
 #spinner .image-text {
@@ -40,12 +40,12 @@
 
 #spinner .image-text:nth-child(1) {
   color: transparent;
-  -webkit-text-stroke: 0.3px #3498DB;
+  -webkit-text-stroke: 0.3px #011f4b;
 }
 
 #spinner .image-text:nth-child(2) {
-  color:#3498DB;
-  -webkit-text-stroke: 1px #3498DB;
+  color:#011f4b;
+  -webkit-text-stroke: 1px #011f4b;
   animation: uiverse723 3s ease-in-out infinite;
 }
 
