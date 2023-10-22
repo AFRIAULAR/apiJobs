@@ -1,11 +1,25 @@
 // API
-const urlBase = "https://6280450a1020d852057b3f0f.mockapi.io/jobs"
+const urlBase = "https://6280450a1020d852057b3f0f.mockapi.io/jobs";
+
+// SPINNER
+const showSpinner = () => document.getElementById("spinner").classList.remove("hidden");
+const hideSpinner = () => document.getElementById("spinner").classList.add("hidden");
 
 // CRUD
 const getJobs = () => {
+  showSpinner();
+  setTimeout(() => {
   fetch(urlBase)
     .then((res) => res.json())
-    .then((data) => createCards(data));
+    .then(data => {
+      hideSpinner();
+      createCards(data);
+    })
+      .catch(error => {
+        console.error(error);
+        hideSpinner();
+      });
+  }, 2000);
 };
 getJobs();
 
@@ -23,7 +37,10 @@ const putJob = (idJob) => {
     },
     body: JSON.stringify(saveEditedJob()),
   })
-  .finally(() => (window.location.href = "index.html"));
+    .finally(() => {
+      showSpinner()
+      window.location.href = "index.html"
+    });
 };
 
 const postJob = () => {
@@ -34,12 +51,18 @@ const postJob = () => {
     },
     body: JSON.stringify(saveJob()),
   })
-  .finally(() => (window.location.href = "index.html"));
+    .finally(() => {
+      showSpinner()
+      window.location.href = "index.html"
+    });
 };
 
 const deleteJob = (idJob) => {
   fetch(`${urlBase}/${idJob}`, {
     method: "DELETE",
   })
-  .finally(() => (window.location.href = "index.html"));
+    .finally(() => {
+    showSpinner()
+    window.location.href = "index.html"
+    });
 };
