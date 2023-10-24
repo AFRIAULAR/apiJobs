@@ -5,6 +5,7 @@ const urlBase = "https://6280450a1020d852057b3f0f.mockapi.io/jobs";
 const showSpinner = () => document.getElementById("spinner").classList.remove("hidden");
 const hideSpinner = () => document.getElementById("spinner").classList.add("hidden");
 
+
 // CRUD
 const getJobs = () => {
   showSpinner();
@@ -64,5 +65,25 @@ const deleteJob = (idJob) => {
     .finally(() => {
     showSpinner()
     window.location.href = "index.html"
+    });
+};
+
+//FILTERS FETCH
+const loadAndFilterJobs = (category, location, salary) => {
+  showSpinner();
+  fetch(urlBase)
+    .then((res) => res.json())
+    .then((data) => {
+      const filteredJobs = data.filter((job) => {
+        return filterJobByCategory(job, category) &&
+          filterJobByLocation(job, location) &&
+          filterJobBySalary(job, salary);
+      });
+      hideSpinner();
+      updateCardContainer(filteredJobs);
+    })
+    .catch((error) => {
+      console.error(error);
+      hideSpinner();
     });
 };

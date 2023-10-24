@@ -237,6 +237,41 @@ const deleteJobBtn = (idJob) => {
   }
 };
 
+// FILTERS
+const selectCategory = $("#selectCategory");
+const selectLocation = $("#selectLocation");
+const selectSalary = $("#selectSalary");
+
+const filterJobs = () => {
+  const selectedCategory = selectCategory.value;
+  const selectedLocation = selectLocation.value;
+  const selectedSalary = selectSalary.value;
+  loadAndFilterJobs(selectedCategory, selectedLocation, selectedSalary);
+};
+
+selectCategory.addEventListener("change", filterJobs);
+selectLocation.addEventListener("change", filterJobs);
+selectSalary.addEventListener("change", filterJobs);
+
+const filterJobByCategory = (job, category) => category === "Categoría" || job.category === category;
+const filterJobByLocation = (job, location) => location === "Locación" || job.location === location;
+const filterJobBySalary = (job, salary) => salary === "Salario" || rangeSalary(job.salary, salary);
+
+const updateCardContainer = (filteredJobs) => {
+  const cardContainer = document.getElementById("cardContainer");
+  cardContainer.innerHTML = "";
+  createCards(filteredJobs);
+};
+
+const rangeSalary = (jobSalary, selectedSalary) => {
+  const salaryRanges = {
+    "$0 a $2500": (jobSalary) => jobSalary <= 2500,
+    "$2501 a $5000": (jobSalary) => jobSalary > 2500 && jobSalary <= 5000,
+    "$5001 o más": (jobSalary) => jobSalary > 5000,
+  };
+
+  return salaryRanges[selectedSalary](jobSalary);
+};
 
 // DOM EVENTS
 $("#showCreateJob").addEventListener("click", () => {
