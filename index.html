@@ -36,7 +36,7 @@
           </li>
           <li>
             <button type="submit" id="showCreateJob"
-              class="text-[#333333] bg-[#fed766] hover:bg-[#84c1ff] focus:ring-2 focus:outline-none focus:ring-[#84c1ff] font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
+              class="text-[#333333] bg-[#fed766] hover:bg-[#84c1ff] hover:text-[#f5f5f5] focus:ring-2 focus:outline-none focus:ring-[#84c1ff] font-bold rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
               Crear vacante
             </button>
           </li>
@@ -77,7 +77,8 @@
           <option value="$5001 o más">$5001 o más</option>
         </select>
       </div>
-    </div>
+    <button id="clearFilters" class="px-2 py-2 ml-auto mb-6 mt-4 bg-gray-100 rounded-full font-semibold uppercase tracking-wide text-xs hover:bg-[#84c1ff] hover:text-[#f5f5f5]">Limpiar filtros</button>
+    </div> 
   </div>
 
   <div id="spinner" class="hidden">
@@ -218,19 +219,19 @@
                 </label>
                 <div class="flex flex-wrap">
                   <label class="mr-4">
-                    <input type="checkbox" class="mr-1" value="EN"> Inglés
+                    <input type="checkbox" class="mr-1" value="Inglés"> Inglés
                   </label>
                   <label class="mr-4">
-                    <input type="checkbox" class="mr-1" value="ES"> Español
+                    <input type="checkbox" class="mr-1" value="Español"> Español
                   </label>
                   <label class="mr-4">
-                    <input type="checkbox" class="mr-1" value="IT"> Italiano
+                    <input type="checkbox" class="mr-1" value="Italiano"> Italiano
                   </label>
                   <label class="mr-4">
-                    <input type="checkbox" class="mr-1" value="FR"> Francés
+                    <input type="checkbox" class="mr-1" value="Francés"> Francés
                   </label>
                   <label>
-                    <input type="checkbox" class="mr-1" value="PR"> Portugués
+                    <input type="checkbox" class="mr-1" value="Portugués"> Portugués
                   </label>
                 </div>
               </div>

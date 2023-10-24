@@ -141,7 +141,7 @@ const createJob = (job) => {
         <span class="inline-block px-2 py-2 leading-none bg-[#fed766] text-[#011f4b] rounded-full font-semibold uppercase tracking-wide text-xs">${category}</span>
       </div>
       <div class="p-4 border-t border-b text-xs text-gray-700">
-        <button id="btnJobDetails" data-id="${id}" class="btnJobDetails flex items-center bg-[#011f4b] rounded-full font-medium px-4 py-2 text-white ml-[70%]">Ver detalles</button>
+        <button id="btnJobDetails" data-id="${id}" class="btnJobDetails flex items-center bg-[#011f4b] rounded-full font-medium px-4 py-2 text-white ml-[70%] hover:bg-[#84c1ff] hover:text-[#011f4b]">Ver detalles</button>
       </div>
     </div>
   `;
@@ -272,6 +272,14 @@ const rangeSalary = (jobSalary, selectedSalary) => {
 
   return salaryRanges[selectedSalary](jobSalary);
 };
+//CLEAR FILTERS
+const clearFiltersButton = $("#clearFilters");
+clearFiltersButton.addEventListener("click", () => {
+  selectCategory.value = "Categoría";
+  selectLocation.value = "Locación";
+  selectSalary.value = "Salario";
+  getJobs();
+});
 
 // DOM EVENTS
 $("#showCreateJob").addEventListener("click", () => {
