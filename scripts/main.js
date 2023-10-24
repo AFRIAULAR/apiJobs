@@ -312,3 +312,12 @@ $("#btnEditJobPut").addEventListener("click", (e) => {
   $("#btnEditJobPut").setAttribute("data-id", id);
   putJob(id);
 });
+
+const initReload = $('#initReload');
+if (initReload) {
+  initReload.addEventListener("click", (e) => {
+    e.preventDefault();
+    location.reload(); 
+  });
+}
+
