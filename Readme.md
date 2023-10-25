@@ -32,7 +32,7 @@ Este proyecto consume una API externa de MockAPI para gestionar los trabajos, ut
 
 5. Para editar un trabajo, haz clic en "Editar". Para eliminar un trabajo, haz clic en "Borrar".
 
-6. También puedes acceder desde este link:
+6. También puedes acceder desde este link: https://jazzy-queijadas-856ae5.netlify.app/
 
 
 ## Tecnologías Utilizadas
