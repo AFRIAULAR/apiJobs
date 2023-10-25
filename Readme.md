@@ -1,7 +1,7 @@
 # JOBS
 Jobs es un sistema web para gestión de vacantes de trabajo en cruceros. Permite al usuario crear, editar, ver detalles y eliminar trabajos. Además, utiliza una API de MockAPI para realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) en los trabajos. 
 
-![jobs](../apiJobs/assets/images/jobs_rm.png)
+[![jobs-rm.png](https://i.postimg.cc/gcyQCSDm/jobs-rm.png)](https://postimg.cc/Bt6mDCkV)
 
 ## Funcionalidades
 
